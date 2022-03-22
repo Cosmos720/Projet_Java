@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Repas extends Menu sans porc {
+public class Repas {
 
     /**
      * Default constructor
@@ -15,35 +15,34 @@ public class Repas extends Menu sans porc {
     /**
      * 
      */
-    private void tarif_repas;
+    private int tarif_repas;
 
     /**
      * 
      */
-    public void type_repas;
+    private int quantité_repas;
 
     /**
      * 
      */
-    private void quantité_repas;
+    private String date_repas;
 
     /**
      * 
      */
-    private void date_repas;
+    private Set<Enfant> enfants;
+
+    /**
+     * 
+     */
+    private Cantine cantine;
 
 
     /**
      * 
      */
-    public Set<Cantine> propose;
+    private Set<Reservation> resa;
 
-
-
-    /**
-     * 
-     */
-    private Plat principal plat;
 
     /**
      * 
@@ -58,12 +57,7 @@ public class Repas extends Menu sans porc {
     /**
      * 
      */
-    private Plat principal plat;
-
-    /**
-     * 
-     */
-    private Laitage laitage;
+    private PlatPrincipal plat;
 
 
 }

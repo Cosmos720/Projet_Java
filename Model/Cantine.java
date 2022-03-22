@@ -15,27 +15,35 @@ public class Cantine {
     /**
      * 
      */
-    private void nom_cantine;
+    private String nom_cantine;
 
     /**
      * 
      */
-    private void capacité;
+    private int capacité;
 
     /**
      * 
      */
-    private void horaire_debut;
+    private int horaire_debut;
 
     /**
      * 
      */
-    private void horaire_fin;
+    private int horaire_fin;
+
+
+    /**
+     * 
+     */
+    private Set<Enfant> enfants;
 
 
 
-
-
+    /**
+     * 
+     */
+    private Set<Repas> repas;
 
 
 }

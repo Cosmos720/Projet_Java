@@ -15,31 +15,34 @@ public class Reservation {
     /**
      * 
      */
-    private void nom_associé;
+    private String nom_associé;
 
     /**
      * 
      */
-    private void date_reservation;
+    private String date_reservation;
 
     /**
      * 
      */
-    private void prix;
+    private int prix;
 
     /**
      * 
      */
-    private void absence;
+    private boolean absence;
+
+
+
 
     /**
      * 
      */
-    public Enfant est lié à;
+    private Compte compte;
 
-
-
-
-
+    /**
+     * 
+     */
+    private Repas repas;
 
 }

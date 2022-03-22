@@ -4,18 +4,17 @@ import java.util.*;
 /**
  * 
  */
-public class Quotient_familial {
+public class Aliments {
 
     /**
      * Default constructor
      */
-    public Quotient_familial() {
+    public Aliments() {
     }
 
     /**
      * 
      */
-    private int total;
-
+    private String nom;
 
 }

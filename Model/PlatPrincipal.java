@@ -4,18 +4,18 @@ import java.util.*;
 /**
  * 
  */
-public class Dessert {
+public class PlatPrincipal {
 
     /**
      * Default constructor
      */
-    public Dessert() {
+    public PlatPrincipal() {
     }
 
     /**
      * 
      */
-    private String nom_dessert;
+    private String nom_plat;
 
     /**
      * 

@@ -15,23 +15,26 @@ public class Compte {
     /**
      * 
      */
-    private void identifiant;
+    private int identifiant;
 
     /**
      * 
      */
-    public void Attribute1;
+    private String mot_de_passe;
 
     /**
      * 
      */
-    private void mot_de_passe;
+    private int solde;
 
     /**
      * 
      */
-    private void solde;
+    private Set<Parent> utilisateur;
 
-
+    /**
+     * 
+     */
+    private Set<Reservation> resa;
 
 }

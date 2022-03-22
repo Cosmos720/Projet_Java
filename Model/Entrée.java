@@ -4,23 +4,26 @@ import java.util.*;
 /**
  * 
  */
-public class Dessert {
+public class Entrée {
 
     /**
      * Default constructor
      */
-    public Dessert() {
+    public Entrée() {
     }
 
     /**
      * 
      */
-    private String nom_dessert;
+    private String nom_entrée;
 
     /**
      * 
      */
     private String aliments;
+
+
+
 
     /**
      * 

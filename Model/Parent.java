@@ -15,52 +15,29 @@ public class Parent extends Personne {
     /**
      * 
      */
-    public void nom_parent;
+    private String adresse;
 
     /**
      * 
      */
-    public void prenom_enfant;
+    private int telephone_fixe;
 
     /**
      * 
      */
-    public void age;
+    private int telephone_perso;
+
+
 
     /**
      * 
      */
-    public void sexe;
+    private Compte compte;
 
     /**
      * 
      */
-    private void adresse;
-
-    /**
-     * 
-     */
-    private void telephone_fixe;
-
-    /**
-     * 
-     */
-    private void telephone_perso;
-
-    /**
-     * 
-     */
-    public void solde_cantine;
-
-    /**
-     * 
-     */
-    public void Attribute1;
-
-
-
-
-
+    private Set<Enfant> enfants;
 
 
 

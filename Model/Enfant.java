@@ -15,69 +15,31 @@ public class Enfant extends Personne {
     /**
      * 
      */
-    public void nom_enfant;
+    private String classe;
 
     /**
      * 
      */
-    public void prenom_enfant;
+    private int horaires_cours;
 
     /**
      * 
      */
-    private void age;
+    private String allergies;
 
     /**
      * 
      */
-    public void sexe;
+    private Set<Parent> parents;
 
     /**
      * 
      */
-    private void classe;
+    private Set<Repas> repas;
 
     /**
      * 
      */
-    private void horaires_cours;
-
-    /**
-     * 
-     */
-    public void date_naissance;
-
-    /**
-     * 
-     */
-    public void Attribute1;
-
-    /**
-     * 
-     */
-    public void lieu_naissance;
-
-    /**
-     * 
-     */
-    private void allergies;
-
-    /**
-     * 
-     */
-    public void abscence;
-
-    /**
-     * 
-     */
-    public void Attribute2;
-
-
-
-
-
-
-
-
+    private Cantine cantine;
 
 }

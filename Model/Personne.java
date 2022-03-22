@@ -15,21 +15,21 @@ public class Personne {
     /**
      * 
      */
-    private void nom;
+    private String nom;
 
     /**
      * 
      */
-    private void prenom;
+    private String prenom;
 
     /**
      * 
      */
-    private void age;
+    private int age;
 
     /**
      * 
      */
-    private void sexe;
+    private String sexe;
 
 }
