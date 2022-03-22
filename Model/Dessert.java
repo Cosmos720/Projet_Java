@@ -9,7 +9,9 @@ public class Dessert {
     /**
      * Default constructor
      */
-    public Dessert() {
+    public Dessert(String n, Vector<Aliments> liste_a) {
+        nom_dessert = n;
+        aliments = liste_a;
     }
 
     /**
@@ -17,14 +19,24 @@ public class Dessert {
      */
     private String nom_dessert;
 
-    /**
-     * 
-     */
-    private String aliments;
 
     /**
      * 
      */
-    private Set<Aliments> liste_a;
+    private Vector<Aliments> aliments;
+
+    /**
+     * 
+     */
+    public String getNom(){
+        return nom_dessert;
+    }
+
+    /**
+     * 
+     */
+    public Vector<Aliments> getAliments(){
+        return aliments;
+    }
 
 }
