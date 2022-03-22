@@ -1,6 +1,4 @@
 
-import java.util.*;
-
 /**
  * 
  */
@@ -9,7 +7,11 @@ public class Personne {
     /**
      * Default constructor
      */
-    public Personne() {
+    public Personne(String nom, String prenom, int age, String sexe) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.sexe = sexe;
     }
 
     /**
@@ -31,5 +33,26 @@ public class Personne {
      * 
      */
     private String sexe;
+
+    public String getNom() {
+        return nom;
+    }
+
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+
+
+    public int getAge() {
+        return age;
+    }
+
+
+    public String getSexe() {
+        return sexe;
+    }
+
 
 }
