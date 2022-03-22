@@ -1,8 +1,5 @@
-
-
-
 /**
- * 
+ * Classe Reservation
  */
 public class Reservation {
 
