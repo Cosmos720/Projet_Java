@@ -18,7 +18,7 @@ public class inscrireCtl implements ActionListener{
 		
 		if(pressed.getName() == "inscrire") {
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new main());
+			mainView.getContentPane().add(new pageMain());
 			mainView.validate();
 		}
 		
