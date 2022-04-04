@@ -40,6 +40,8 @@ public class pageAjouterArgent extends JFrame {
 		btn_ajouter.setName("ajouter");
         btn_ajouter.addActionListener(controle);
 		panel.add(btn_ajouter);
+
+		setVisible(true);
 	}
 
     public String getValeur(){

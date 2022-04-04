@@ -24,7 +24,7 @@ public class controleCreerEnfant implements ActionListener{
             mainView.getNom()
             mainView.getSexe()
             mainView.getClasse()*/
-            
+            mainView.dispose();
 		}
 	}
 

@@ -20,6 +20,7 @@ public class controleAjtArgent implements ActionListener{
 		if(pressed.getName() == "ajouter") {
 			// Creation d'un nouveau Enfant
             // mainView.getValeur()
+			mainView.dispose();
 		}
 	}
 

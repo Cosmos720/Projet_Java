@@ -3,7 +3,6 @@ package Vue;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.EmptyBorder;
-
 import Controller.*;
 
 
@@ -57,7 +56,6 @@ public class pageConnecter extends JPanel {
 		b1.setName("connecter");
 		b1.addActionListener(ctl);
 		add(b1);
-
 	}
 
 }

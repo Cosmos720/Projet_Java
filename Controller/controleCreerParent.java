@@ -24,7 +24,7 @@ public class controleCreerParent implements ActionListener{
             mainView.getNom()
             mainView.getSexe()
             mainView.getSalaire()*/
-            
+            mainView.dispose();
 		}
 	}
 
