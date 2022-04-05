@@ -40,6 +40,10 @@ public class Parent extends Personne {
     private Quotient_familial quotient;
 
 
+    public Quotient_familial getQuotient() {
+        return quotient;
+    }
+
     public Compte getCompte() {
         return compte;
     }
