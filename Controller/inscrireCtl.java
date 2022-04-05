@@ -2,6 +2,7 @@ package Controller;
 
 import Vue.*;
 import Model.*;
+import java.util.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,11 +28,12 @@ public class inscrireCtl implements ActionListener{
 		String user = this.pageInscrire.getUserName();
 		char[] mdp = this.pageInscrire.getPassword();
 		char[] mdpconfirm = this.pageInscrire.getPasswordConfirm();
-		System.out.println(user);
+		// test System.out.println(user);
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "inscrire") {
-			if(mdp==mdpconfirm){
+			if(Arrays.equals(mdp,mdpconfirm)){
+				System.out.println("A");
 				mainView.getContentPane().removeAll();
 				mainView.getContentPane().add(new pageCreerParent(mainView));
 				mainView.validate();
