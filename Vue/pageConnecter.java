@@ -62,4 +62,13 @@ public class pageConnecter extends JPanel {
 		add(b1);
 	}
 
+	public String getTextField() {
+		return textField.getText();
+	}
+
+	
+
+	public char[] getPasswordField() {
+		return passwordField.getPassword();
+	}
 }
