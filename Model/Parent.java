@@ -37,7 +37,7 @@ public class Parent extends Personne {
     /**
      * 
      */
-    private int quotient;
+    private Quotient_familial quotient;
 
 
     public Compte getCompte() {

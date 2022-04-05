@@ -44,14 +44,26 @@ public class Compte {
      */
     private Vector<Reservation> resa;
 
-    public int getid() {
+    public int getId() {
         return id;
     }
 
 
-    public String getmdp() {
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    public String getMdp() {
         return mdp;
     }
+
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
+    }
+
 
     public int getSolde() {
         return solde;
