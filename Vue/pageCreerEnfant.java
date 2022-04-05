@@ -23,7 +23,7 @@ public class pageCreerEnfant extends JFrame {
 		super();
 		controle = new controleCreerEnfant(this);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400,400);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
