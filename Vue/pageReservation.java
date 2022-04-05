@@ -89,5 +89,4 @@ public class pageReservation extends JFrame {
 		}
 		return dates;
 	}
-
 }

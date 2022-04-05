@@ -57,6 +57,7 @@ public class pageMain extends JPanel{
             
             deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);
             //quitter.setFont(new Font("Tahoma", Font.PLAIN, 15));
+
             deconnecter.setName("Se deconnecter");
             deconnecter.addActionListener(controleMain);
             add(deconnecter);
@@ -64,13 +65,6 @@ public class pageMain extends JPanel{
            
     
         }
-
-
-        public void actionRetour() {
-        }
-
-    
-    
 }
 /*
 //utilistaion du grid pour la position des objets

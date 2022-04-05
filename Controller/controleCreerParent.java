@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class controleCreerParent implements ActionListener{
-	private pageCreerParent mainView;
+	private pageAccueil mainView;
 	
-	public controleCreerParent(pageCreerParent v) {
+	public controleCreerParent(pageAccueil v) {
 		mainView = v;
 	}
 	
@@ -17,14 +17,17 @@ public class controleCreerParent implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton pressed=((JButton)e.getSource());
 		
-		if(pressed.getName() == "creer") {
+		if(pressed.getName() == "continuer") {
+			
 			// Creation d'un nouveau Parent
             /*mainView.getAge()
             mainView.getPrenom()
             mainView.getNom()
             mainView.getSexe()
             mainView.getSalaire()*/
-            mainView.dispose();
+            mainView.getContentPane().removeAll();
+			mainView.getContentPane().add(new pageMain(null));
+			mainView.validate();
 		}
 	}
 
