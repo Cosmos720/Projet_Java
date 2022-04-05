@@ -34,7 +34,7 @@ public class pageCreerParent extends JPanel {
 		
 		JLabel label_info = new JLabel("Ajouter les information du parent");
 		label_info.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		label_info.setHorizontalAlignment(SwingConstants.CENTER);
+		label_info.setAlignmentX(Component.CENTER_ALIGNMENT);
 		panel_1.add(label_info);
 
 		JPanel panel_2 = new JPanel();
@@ -81,6 +81,7 @@ public class pageCreerParent extends JPanel {
 		// Ajout boutton
 		btn_parent.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btn_parent.setName("continuer");
+		btn_parent.setAlignmentX(Component.CENTER_ALIGNMENT);
         btn_parent.addActionListener(controle);
 		panel_1.add(btn_parent);
 		
