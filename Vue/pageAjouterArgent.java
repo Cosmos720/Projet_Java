@@ -16,7 +16,8 @@ public class pageAjouterArgent extends JFrame {
 		super();
         controle = new controleAjtArgent(this);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setSize(400,400);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
 		JPanel panel = new JPanel();
