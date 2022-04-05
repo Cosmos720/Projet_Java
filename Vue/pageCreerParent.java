@@ -11,13 +11,23 @@ public class pageCreerParent extends JPanel {
 	private JTextField textField_nom = new JTextField();
 	private JTextField textField_prenom = new JTextField();
 	private JTextField textField_sexe = new JTextField();
+	private pageAccueil mainView;
 	private JTextField textField_age = new JTextField();
 	private JTextField textField_salaire = new JTextField();
-	
 	private JButton btn_parent = new JButton("Continuer");
+	private controleCreerParent controle;
+	
+	
+	private JComboBox<String> ls; 
+	private JComboBox<String> lSalaire; 
+	
 
-	private pageAccueil mainView;
-    private controleCreerParent controle;
+	
+
+	
+
+	
+   
 	
 	public pageCreerParent(pageAccueil v) {
 		super();
@@ -59,9 +69,12 @@ public class pageCreerParent extends JPanel {
 		
         // Ajout Sexe
 		JLabel label_sexe = new JLabel("Sexe");
+		//String[] listSexe = new String[] {"Homme","Femme"};
+		ls = new JComboBox<String>(new String[] {"Homme","Femme"});
+
 		label_sexe.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_2.add(label_sexe);
-		panel_2.add(textField_sexe);
+		panel_2.add(ls);
 		
         // Ajout Age
 		JLabel label_age = new JLabel("Age");
@@ -70,10 +83,13 @@ public class pageCreerParent extends JPanel {
 		panel_2.add(textField_age);
 		
         // Ajout Salaire
-		JLabel label_salaire = new JLabel("Salaire");
+		JLabel label_salaire = new JLabel("SalaireBrut");
+		String[] listSalaire = new String[] {"0€ - 1600€","1601€ - 3000€","3000€ et plus"};
+		lSalaire = new JComboBox<String>(listSalaire);
+
 		label_salaire.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_2.add(label_salaire);
-		panel_2.add(textField_salaire);
+		panel_2.add(lSalaire);
 
 		panel_2.add(new JPanel());
 		panel_2.add(new JPanel());
