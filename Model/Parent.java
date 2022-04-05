@@ -15,6 +15,8 @@ public class Parent extends Personne {
         this.compte = compte;
         this.enfants = enfants;
         this.salaire = salaire;
+        this.quotient= new Quotient_familial(this);
+        
     }
 
     /**
@@ -31,6 +33,11 @@ public class Parent extends Personne {
      * 
      */
     private int salaire;
+
+    /**
+     * 
+     */
+    private int quotient;
 
 
     public Compte getCompte() {
