@@ -15,7 +15,7 @@ public class pageCreerEnfant extends JFrame {
 	private JTextField textField_age = new JTextField();
 	private JTextField textField_classe = new JTextField();
 	
-	private JButton btn_enfant = new JButton("Creer Enfant");
+	private JButton btn_enfant = new JButton("Inscrire mon Enfant");
 
 	private controleCreerEnfant controle;
 	
