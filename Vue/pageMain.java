@@ -10,21 +10,21 @@ import Controller.*;
 
 public class pageMain extends JPanel{
 
-    
-    
-        //private JTextField textField  = new JTextField();
         private JLabel label = new JLabel("Service Cantine");
         private JButton bCompte = new JButton("Compte");
         private JButton bReservation = new JButton("Réservation");
         private JButton deconnecter = new JButton("Se deconnecter");
 
-        
-        //private ControleMain controleMain;
+        private pageAccueil mainView;
+        private ControleMain controleMain;
 
         
-        public pageMain(ControleMain controleMain ) {
+        public pageMain(pageAccueil v ) {
+            super();
+		    mainView = v;
+		    controleMain = new ControleMain(mainView);
 
-            //this.controleMain = controleMain;
+            
             
             setBorder(new EmptyBorder(50, 80, 50, 80));
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -37,17 +37,13 @@ public class pageMain extends JPanel{
             Component verticalStrut = Box.createVerticalStrut(50);
             add(verticalStrut);
             
-            JPanel panel = new JPanel();
+            JPanel panel = new JPanel();     
             add(panel);
-            panel.setLayout(new GridLayout(3, 2, 0, 20));
-            
+            panel.setLayout(new GridLayout(3, 2, 0, 20)); 
             panel.add(bCompte);    
             panel.add(bReservation);
             
-            
             deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);
-            //quitter.setFont(new Font("Tahoma", Font.PLAIN, 15));
-
             deconnecter.setName("Se deconnecter");
             deconnecter.addActionListener(controleMain);
             add(deconnecter);
@@ -57,6 +53,7 @@ public class pageMain extends JPanel{
         }
 
 
+       
 }
 /*
 //utilistaion du grid pour la position des objets

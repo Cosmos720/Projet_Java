@@ -26,7 +26,7 @@ public class controleCreerParent implements ActionListener{
             mainView.getSexe()
             mainView.getSalaire()*/
             mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(null));
+			mainView.getContentPane().add(new pageMain(mainView));
 			mainView.validate();
 		}
 	}

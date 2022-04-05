@@ -5,17 +5,9 @@ import javax.swing.*;
 import Vue.*;
 
 public class ControleMain implements ActionListener {
+    private pageAccueil mainView;
 
-    private pageAccueil pageAcceuil;
-    private pageMain pageMain;
-    private ControleMain controleMain;
-    private pageMain mainView;
-
-    public void actionRetour(){
-        this.controleMain.goAccueil();
-    }
-
-    public ControleMain(pageMain v ){
+    public ControleMain(pageAccueil v ){
         mainView = v;
 
     }
@@ -24,14 +16,12 @@ public class ControleMain implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JButton pressed=((JButton)e.getSource());
 
-		if(pressed.getName() == "se deconnecter") {
-        mainView.actionRetour();
+		if(pressed.getName() == "Se deconnecter") {
+            mainView.getContentPane().removeAll();
+            mainView.getContentPane().add(new pageAccueil());
+			mainView.validate();
         }
 
-    }
-    public void goAccueil(){
-        this.pageAcceuil.setVisible(true);
-        this.pageMain.setVisible(false);
     }
     
 }
