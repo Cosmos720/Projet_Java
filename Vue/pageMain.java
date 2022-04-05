@@ -14,7 +14,7 @@ public class pageMain extends JPanel{
         private JButton bCompte = new JButton("Compte");
         private JButton bReservation = new JButton("Réservation");
         private JButton deconnecter = new JButton("Se deconnecter");
-
+        private JLabel solde = new JLabel("Solde");
         private pageAccueil mainView;
         private ControleMain controleMain;
 
@@ -24,7 +24,7 @@ public class pageMain extends JPanel{
 		    mainView = v;
 		    controleMain = new ControleMain(mainView);
 
-            
+            solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");
             
             setBorder(new EmptyBorder(50, 80, 50, 80));
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -42,8 +42,8 @@ public class pageMain extends JPanel{
             panel.setLayout(new GridLayout(3, 2, 0, 20)); 
             bCompte.setName("compte");
             bCompte.addActionListener(controleMain);
+            panel.add(solde);
             panel.add(bCompte);  
-            
             bReservation.setName("reservation");
             bReservation.addActionListener(controleMain);
             panel.add(bReservation);
