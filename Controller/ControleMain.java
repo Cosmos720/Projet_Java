@@ -29,7 +29,6 @@ public class ControleMain implements ActionListener {
         }
 
     }
-
     public void goAccueil(){
         this.pageAcceuil.setVisible(true);
         this.pageMain.setVisible(false);

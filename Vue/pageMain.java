@@ -10,16 +10,6 @@ import Controller.*;
 
 public class pageMain extends JPanel{
 
-        
-    
-        //private JButton buttonInscription;
-        
-
-
-
-       
-
-        //private JButton calculQF;
     
     
         //private JTextField textField  = new JTextField();
@@ -29,7 +19,7 @@ public class pageMain extends JPanel{
         private JButton deconnecter = new JButton("Se deconnecter");
 
         
-        private ControleMain controleMain;
+        //private ControleMain controleMain;
 
         
         public pageMain(ControleMain controleMain ) {
@@ -65,6 +55,8 @@ public class pageMain extends JPanel{
            
     
         }
+
+
 }
 /*
 //utilistaion du grid pour la position des objets
