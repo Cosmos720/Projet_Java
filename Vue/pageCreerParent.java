@@ -6,7 +6,7 @@ import javax.swing.border.EmptyBorder;
 
 import Controller.*;
 
-public class pageCreerParent extends JFrame {
+public class pageCreerParent extends JPanel {
 
 	private JTextField textField_nom = new JTextField();
 	private JTextField textField_prenom = new JTextField();
@@ -14,28 +14,37 @@ public class pageCreerParent extends JFrame {
 	private JTextField textField_age = new JTextField();
 	private JTextField textField_salaire = new JTextField();
 	
-	private JButton btn_parent = new JButton("Creer parent");
+	private JButton btn_parent = new JButton("Continuer");
 
+	private pageAccueil mainView;
     private controleCreerParent controle;
 	
-	public pageCreerParent() {
+	public pageCreerParent(pageAccueil v) {
 		super();
-        controle = new controleCreerParent(this);
+		mainView = v;
+        controle = new controleCreerParent(mainView);
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(400,400);
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new EmptyBorder(20, 50, 20, 50));
-		getContentPane().add(panel_1);
+		this.add(panel_1);
 		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));
 		
+		JLabel label_info = new JLabel("Ajouter les information du parent");
+		label_info.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		label_info.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(label_info);
+
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new EmptyBorder(0, 0, 20, 0));
 		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(5, 2, 20, 10));
+		panel_2.setLayout(new GridLayout(7, 2, 20, 20));
 		
+		panel_2.add(new JPanel());
+		panel_2.add(new JPanel());
+
         // Ajout Nom
 		JLabel label_nom = new JLabel("Nom");
 		label_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -65,14 +74,17 @@ public class pageCreerParent extends JFrame {
 		label_salaire.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_2.add(label_salaire);
 		panel_2.add(textField_salaire);
+
+		panel_2.add(new JPanel());
+		panel_2.add(new JPanel());
 		
 		// Ajout boutton
 		btn_parent.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btn_parent.setName("creer");
+        btn_parent.setName("continuer");
         btn_parent.addActionListener(controle);
 		panel_1.add(btn_parent);
 		
-		setVisible(true);
+		
 		
 	}
 

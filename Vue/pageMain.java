@@ -54,11 +54,7 @@ public class pageMain extends JPanel{
             quitter.setName("Back");
             quitter.addActionListener(controleMain);
             add(quitter);
-            
-    
         }
-    
-    
 }
 /*
 //utilistaion du grid pour la position des objets
