@@ -18,7 +18,7 @@ public class ControleMain implements ActionListener {
 
 		if(pressed.getName() == "Se deconnecter") {
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new pageAccueil());
+            mainView.getContentPane().add(new accueilStart(mainView));
 			mainView.validate();
         }
 
