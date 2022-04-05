@@ -20,6 +20,12 @@ public class ControleMain implements ActionListener {
             mainView.getContentPane().removeAll();
             mainView.getContentPane().add(new pageAccueil());
 			mainView.validate();
+        }else if(pressed.getName() == "compte"){
+            mainView.getContentPane().removeAll();
+            mainView.getContentPane().add(new pageCompte(mainView));
+			mainView.validate();
+        }else if(pressed.getName() == "reservation"){
+            new pageReservation();
         }
 
     }
