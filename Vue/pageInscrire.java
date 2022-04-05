@@ -8,7 +8,7 @@ import Controller.*;
 public class pageInscrire extends JPanel {
 	private JTextField textField  = new JTextField();
 	private JPasswordField passwordField =  new JPasswordField();
-	private JPasswordField passwordField_1 = new JPasswordField();
+	private JPasswordField passwordFieldConfirm = new JPasswordField();
 	private JLabel label_id = new JLabel("Identifiant");
 	private JLabel label_mdp = new JLabel("Mot de passe");
 	private JLabel label_top = new JLabel("Inscription");
@@ -56,7 +56,7 @@ public class pageInscrire extends JPanel {
 		panel.add(label_mdp_conf);
 		
 		
-		panel.add(passwordField_1);
+		panel.add(passwordFieldConfirm);
 		panel.add(new JPanel());
 		panel.add(new JPanel());
 		Component verticalStrut_1 = Box.createVerticalStrut(50);
@@ -71,4 +71,37 @@ public class pageInscrire extends JPanel {
 
 	}
 
+	public String getTextField() {
+		return textField.getText();
+	}
+
+	
+
+	public char[] getPasswordField() {
+		return passwordField.getPassword();
+	}
+
+
+	public char[] getPasswordFieldConfirm() {
+		return passwordFieldConfirm.getPassword();
+	}
+
+
+
+	/*
+	public JPasswordField getPasswordField_1() {
+		return passwordField_1;
+	}
+
+	public void setPasswordField_1(JPasswordField passwordField_1) {
+		this.passwordField_1 = passwordField_1;
+	}
+	*/
+
+
+
+
+
+
+	
 }
