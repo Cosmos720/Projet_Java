@@ -114,7 +114,7 @@ public class pageCreerParent extends JPanel {
     }
 
     public String getSexe(){
-        return this.textField_sexe.getText();
+        return ((String)ls.getSelectedItem());
     }
 
     public String getAge(){
@@ -122,6 +122,6 @@ public class pageCreerParent extends JPanel {
     }
 
     public String getSalaire(){
-        return this.textField_salaire.getText();
+        return ((String)lSalaire.getSelectedItem());
     }
 }

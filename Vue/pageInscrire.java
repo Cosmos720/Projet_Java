@@ -71,18 +71,18 @@ public class pageInscrire extends JPanel {
 
 	}
 
-	public String getTextField() {
+	public String getUserName() {
 		return textField.getText();
 	}
 
 	
 
-	public char[] getPasswordField() {
+	public char[] getPassword() {
 		return passwordField.getPassword();
 	}
 
 
-	public char[] getPasswordFieldConfirm() {
+	public char[] getPasswordConfirm() {
 		return passwordFieldConfirm.getPassword();
 	}
 
