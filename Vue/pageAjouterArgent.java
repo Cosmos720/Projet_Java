@@ -12,8 +12,9 @@ public class pageAjouterArgent extends JFrame {
 
     private controleAjtArgent controle;
 
-	public pageAjouterArgent(controleAjtArgent ctl) {
-        controle = ctl;
+	public pageAjouterArgent() {
+		super();
+        controle = new controleAjtArgent(this);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));

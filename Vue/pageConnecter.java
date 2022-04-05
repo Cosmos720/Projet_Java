@@ -35,8 +35,9 @@ public class pageConnecter extends JPanel {
 		
 		JPanel panel = new JPanel();
 		add(panel);
-		panel.setLayout(new GridLayout(2, 2, 0, 20));
-		
+		panel.setLayout(new GridLayout(4, 2, 0, 40));
+		panel.add(new JPanel());
+		panel.add(new JPanel());
 		JLabel label_id = new JLabel("Identifiant :");
 		panel.add(label_id);
 		
@@ -47,7 +48,10 @@ public class pageConnecter extends JPanel {
 		panel.add(label_mdp);
 		
 		panel.add(passwordField);
-		
+		panel.add(new JPanel());
+		panel.add(new JPanel());
+
+
 		Component verticalStrut_1 = Box.createVerticalStrut(50);
 		add(verticalStrut_1);
 		

@@ -18,8 +18,9 @@ public class pageCreerParent extends JFrame {
 
     private controleCreerParent controle;
 	
-	public pageCreerParent(controleCreerParent ctl) {
-        controle = ctl;
+	public pageCreerParent() {
+		super();
+        controle = new controleCreerParent(this);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(400,400);

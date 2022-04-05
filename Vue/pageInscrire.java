@@ -36,8 +36,9 @@ public class pageInscrire extends JPanel {
 		
 		JPanel panel = new JPanel();
 		add(panel);
-		panel.setLayout(new GridLayout(3, 2, 0, 20));
-		
+		panel.setLayout(new GridLayout(5, 2, 0, 40));
+		panel.add(new JPanel());
+		panel.add(new JPanel());
 		
 		panel.add(label_id);
 		
@@ -56,7 +57,8 @@ public class pageInscrire extends JPanel {
 		
 		
 		panel.add(passwordField_1);
-		
+		panel.add(new JPanel());
+		panel.add(new JPanel());
 		Component verticalStrut_1 = Box.createVerticalStrut(50);
 		add(verticalStrut_1);
 		
