@@ -40,7 +40,12 @@ public class pageMain extends JPanel{
             JPanel panel = new JPanel();     
             add(panel);
             panel.setLayout(new GridLayout(3, 2, 0, 20)); 
-            panel.add(bCompte);    
+            bCompte.setName("compte");
+            bCompte.addActionListener(controleMain);
+            panel.add(bCompte);  
+            
+            bReservation.setName("reservation");
+            bReservation.addActionListener(controleMain);
             panel.add(bReservation);
             
             deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);

@@ -18,8 +18,14 @@ public class ControleMain implements ActionListener {
 
 		if(pressed.getName() == "Se deconnecter") {
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new accueilStart(mainView));
+            mainView.getContentPane().add(new pageAccueil());
 			mainView.validate();
+        }else if(pressed.getName() == "compte"){
+            mainView.getContentPane().removeAll();
+            mainView.getContentPane().add(new pageCompte(mainView));
+			mainView.validate();
+        }else if(pressed.getName() == "reservation"){
+            new pageReservation();
         }
 
     }
