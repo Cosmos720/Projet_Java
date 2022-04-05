@@ -8,8 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 public class pageCompte extends JPanel{
 
-    private JButton btn_argent = new JButton("Ajouter du solde");
-    private JButton btn_enfant = new JButton("Ajouter un enfant");
+    private JButton btn_argent = new JButton("Créditer mon compte");
+    private JButton btn_enfant = new JButton("Inscrire mon enfant");
     private JButton btn_back = new JButton("Retour");
 
     private controleCompte controle;
