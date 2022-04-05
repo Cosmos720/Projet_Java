@@ -1,6 +1,9 @@
 package Vue;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.EmptyBorder;
 import Controller.*;
 
@@ -11,8 +14,11 @@ public class pageMain extends JPanel{
     
         //private JButton buttonInscription;
         
-        
-      
+
+
+
+       
+
         //private JButton calculQF;
     
     
@@ -20,7 +26,7 @@ public class pageMain extends JPanel{
         private JLabel label = new JLabel("Service Cantine");
         private JButton bCompte = new JButton("Compte");
         private JButton bReservation = new JButton("Réservation");
-        private JButton quitter = new JButton("Back");
+        private JButton deconnecter = new JButton("Se deconnecter");
 
         
         private ControleMain controleMain;
@@ -28,7 +34,7 @@ public class pageMain extends JPanel{
         
         public pageMain(ControleMain controleMain ) {
 
-            this.controleMain = controleMain;
+            //this.controleMain = controleMain;
             
             setBorder(new EmptyBorder(50, 80, 50, 80));
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -49,14 +55,20 @@ public class pageMain extends JPanel{
             panel.add(bReservation);
             
             
-            quitter.setAlignmentX(Component.CENTER_ALIGNMENT);
+            deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);
             //quitter.setFont(new Font("Tahoma", Font.PLAIN, 15));
-            quitter.setName("Back");
-            quitter.addActionListener(controleMain);
-            add(quitter);
-            
+            deconnecter.setName("Se deconnecter");
+            deconnecter.addActionListener(controleMain);
+            add(deconnecter);
+
+           
     
         }
+
+
+        public void actionRetour() {
+        }
+
     
     
 }
