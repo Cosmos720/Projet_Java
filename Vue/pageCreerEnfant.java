@@ -11,9 +11,9 @@ public class pageCreerEnfant extends JFrame {
 	
 	private JTextField textField_nom = new JTextField();
 	private JTextField textField_prenom = new JTextField();
-	private JTextField textField_sexe = new JTextField();
+	private JComboBox<String> sexe;
 	private JTextField textField_age = new JTextField();
-	private JTextField textField_classe = new JTextField();
+	private JComboBox<String> classe;
 	
 	private JButton btn_enfant = new JButton("Inscrire mon Enfant");
 
@@ -52,8 +52,9 @@ public class pageCreerEnfant extends JFrame {
         // Ajout Sexe
 		JLabel label_sexe = new JLabel("Sexe");
 		label_sexe.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		sexe = new JComboBox<String>(new String[]{"Garcon", "Fille"});
 		panel_2.add(label_sexe);
-		panel_2.add(textField_sexe);
+		panel_2.add(sexe);
 		
         // Ajout Age
 		JLabel label_age = new JLabel("Age");
@@ -64,8 +65,9 @@ public class pageCreerEnfant extends JFrame {
         // Ajout Classe
 		JLabel label_classe = new JLabel("Classe");
 		label_classe.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		classe = new JComboBox<String>(new String[]{"CP","CE1","CE2","CM1","CM2"});
 		panel_2.add(label_classe);
-		panel_2.add(textField_classe);
+		panel_2.add(classe);
 		
 		
 		btn_enfant.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -86,7 +88,7 @@ public class pageCreerEnfant extends JFrame {
     }
 
     public String getSexe(){
-        return this.textField_sexe.getText();
+        return ((String)sexe.getSelectedItem());
     }
 
     public String getAge(){
@@ -94,7 +96,7 @@ public class pageCreerEnfant extends JFrame {
     }
 
     public String getClasse(){
-        return this.textField_classe.getText();
+        return ((String)classe.getSelectedItem());
     }
 
 }
