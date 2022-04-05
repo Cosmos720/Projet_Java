@@ -7,9 +7,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+
 public class inscrireCtl implements ActionListener{
+
+	//atribut
+	private pageInscrire pageInscrire;
 	private pageAccueil mainView;
-	String user = this.pageInscrire.getUser
+	String user = this.pageInscrire.getTextField();
+	char[] mdp = this.pageInscrire.getPasswordField();
+	char[] mdpconfirm = this.pageInscrire.getPasswordFieldConfirm();
 	
 	public inscrireCtl(pageAccueil v) {
 		mainView = v;
