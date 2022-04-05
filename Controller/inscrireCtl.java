@@ -13,15 +13,21 @@ public class inscrireCtl implements ActionListener{
 	//atribut
 	private pageInscrire pageInscrire;
 	private pageAccueil mainView;
-	String user = this.pageInscrire.getUserName();
-	char[] mdp = this.pageInscrire.getPassword();
-	char[] mdpconfirm = this.pageInscrire.getPasswordConfirm();
 	
-	public inscrireCtl(pageAccueil v) {
+	
+	
+	public inscrireCtl(pageAccueil v, pageInscrire a) {
 		mainView = v;
+		pageInscrire = a;
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
+
+		String user = this.pageInscrire.getUserName();
+		char[] mdp = this.pageInscrire.getPassword();
+		char[] mdpconfirm = this.pageInscrire.getPasswordConfirm();
+		System.out.println(user);
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "inscrire") {

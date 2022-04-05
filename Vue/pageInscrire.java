@@ -21,7 +21,7 @@ public class pageInscrire extends JPanel {
 	public pageInscrire(pageAccueil v) {
 		super();
 		mainView = v;
-		ctl = new inscrireCtl(mainView);
+		ctl = new inscrireCtl(mainView, this);
 		
 		setBorder(new EmptyBorder(50, 80, 50, 80));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
