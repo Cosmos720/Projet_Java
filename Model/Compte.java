@@ -85,6 +85,8 @@ public class Compte {
         this.resa = resa;
     }
 
-    
+    public Vector<Enfant> getEnfants(){
+        return user.getEnfants();
+    }
 
 }

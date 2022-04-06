@@ -1,6 +1,8 @@
 package Vue;
 
 import Controller.*;
+import Model.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -16,49 +18,77 @@ public class pageReservation extends JFrame {
 	private JPanel panel_date = new JPanel();
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
-	
-	
-	public pageReservation() {
-		super();
+	private JComboBox<Enfant> enfant;
+
+	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
+	private JPanel pan = new JPanel();
+
+	private Compte compte;
+
+	public pageReservation(Compte c) {
+		compte = c;
 		controle = new controleReservation(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(400,400);
+		setSize(575, 500);
 		setTitle("Réservations");
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
-		JPanel panel = new JPanel();
+		
+
+		/* Onglet 1 */
+		JPanel onglet_1 = new JPanel();
 		JPanel panel_1 = new JPanel();
+		onglet_1.setLayout(new BoxLayout(onglet_1, BoxLayout.Y_AXIS));
+		onglet_1.setBorder(new EmptyBorder(20, 50, 20, 50));
 		
-		panel_1.setBorder(new EmptyBorder(20, 50, 20, 50));
-		panel_1.setLayout(new GridLayout(3, 1, 0, 0));
-		panel_1.add(panel);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		getContentPane().add(panel_1);
+		enfant = new JComboBox<Enfant>(compte.getEnfants());
+		panel_1.add(enfant);
 		
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField.setColumns(10);
-		panel.add(textField);
+		panel_1.add(textField);
 		
 		btn_popup.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_popup.setName("popup");
 		btn_popup.addActionListener(controle);
-		panel.add(btn_popup);
+		panel_1.add(btn_popup);
 		
 		btn_add.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_add.setName("add");
 		btn_add.addActionListener(controle);
-		panel.add(btn_add);
+		panel_1.add(btn_add);
 		
-		panel_1.add(panel_date);
+		onglet_1.add(panel_1);
+		onglet_1.add(panel_date);
 		panel_date.setLayout(new GridLayout(0, 1, 0, 0));
 		
 	
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
 		btn_ajouter.addActionListener(controle);
-		panel_1.add(btn_ajouter);
+		onglet_1.add(btn_ajouter);
 		
+
+		/* Onglet 2 */
+		JPanel onglet_2 = new JPanel();
+		JPanel panel_2 = new JPanel();
+
+		onglet_2.setLayout(new BoxLayout(onglet_2, BoxLayout.Y_AXIS));
+		onglet_2.setBorder(new EmptyBorder(20, 50, 20, 50));
+		
+
+		onglet_2.add(panel_2);
+
+		onglet_1.setPreferredSize(new Dimension(575, 300));
+		onglet_1.setPreferredSize(new Dimension(575, 300));
+
+		pan.add(onglets);
+		getContentPane().add(pan);
+
+		onglets.addTab("Ajouter une reservation", onglet_1);
+        onglets.addTab("Voir mes réservations", onglet_2);
+		setBounds(750,300,600,375);
 		setVisible(true);
+		setResizable(false);
 	}
 	
 	public void addDate(String s) {

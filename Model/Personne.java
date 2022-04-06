@@ -55,5 +55,8 @@ public class Personne {
         return sexe;
     }
 
+    public String toString(){
+        return this.nom + " " + prenom;
+    }
 
 }
