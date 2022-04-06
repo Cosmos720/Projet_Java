@@ -17,6 +17,7 @@ public class pageCompte extends JPanel{
 
     public pageCompte(pagePrincipale v){
         mainView = v;
+        mainView.setTitle("Gestion du compte");
         controle = new controleCompte(mainView);
         setBorder(new EmptyBorder(50, 80, 50, 80));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

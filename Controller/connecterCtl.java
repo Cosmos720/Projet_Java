@@ -21,6 +21,10 @@ public class connecterCtl implements ActionListener{
 			mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, null));
 			mainView.validate();
+		}else if(pressed.getName() == "retour") {
+			mainView.getContentPane().removeAll();
+			mainView.getContentPane().add(new accueilStart(mainView));
+			mainView.validate();
 		}
 	}
 

@@ -14,6 +14,7 @@ public class pageInscrire extends JPanel {
 	private JLabel label_top = new JLabel("Inscription");
 	private JLabel label_mdp_conf = new JLabel("Confirmer le mot de passe");
 	private JButton b1 = new JButton("S'inscrire");
+	private JButton b2 = new JButton("Retour");
 	
 	private pagePrincipale mainView;
 	private inscrireCtl ctl;
@@ -21,6 +22,7 @@ public class pageInscrire extends JPanel {
 	public pageInscrire(pagePrincipale v) {
 		super();
 		mainView = v;
+		mainView.setTitle("Inscription");
 		ctl = new inscrireCtl(mainView, this);
 		
 		setBorder(new EmptyBorder(50, 80, 50, 80));
@@ -68,6 +70,15 @@ public class pageInscrire extends JPanel {
 		b1.setName("inscrire");
 		b1.addActionListener(ctl);
 		add(b1);
+
+		Component verticalStrut_2 = Box.createVerticalStrut(50);
+		add(verticalStrut_2);
+		
+		b2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		b2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		b2.setName("retour");
+		b2.addActionListener(ctl);
+		add(b2);
 
 	}
 
