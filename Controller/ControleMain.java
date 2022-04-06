@@ -8,12 +8,10 @@ import Model.*;
 public class ControleMain implements ActionListener {
     private pageAccueil mainView;
     private Compte compte;
-    private Cantine cantine;
 
-    public ControleMain(pageAccueil v, Compte c, Cantine ca){
+    public ControleMain(pageAccueil v, Compte c){
         mainView = v;
         compte = c;
-        cantine = ca;
     }
 
     public int getSolde(){
@@ -27,11 +25,11 @@ public class ControleMain implements ActionListener {
 
 		if(pressed.getName() == "Se deconnecter") {
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new accueilStart(mainView, cantine));
+            mainView.getContentPane().add(new accueilStart(mainView));
 			mainView.validate();
         }else if(pressed.getName() == "compte"){
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new pageCompte(mainView, compte, cantine));
+            mainView.getContentPane().add(new pageCompte(mainView));
 			mainView.validate();
         }else if(pressed.getName() == "reservation"){
             new pageReservation();

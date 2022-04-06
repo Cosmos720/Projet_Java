@@ -3,17 +3,14 @@ package Controller;
 import java.awt.event.*;
 import javax.swing.*;
 
-import Model.*;
 import Vue.*;
 
 public class acceuilStartCtl implements ActionListener{
 	
 	private pageAccueil mainView;
-	private Cantine cantine;
 	
-	public acceuilStartCtl(pageAccueil v, Cantine c) {
+	public acceuilStartCtl(pageAccueil v) {
 		mainView = v;
-		cantine = c;
 	}
 	
 	@Override 
@@ -22,11 +19,11 @@ public class acceuilStartCtl implements ActionListener{
 		
 		if(pressed.getName() == "connecter") {
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageConnecter(mainView, cantine));
+			mainView.getContentPane().add(new pageConnecter(mainView));
 			mainView.validate();
 		}else if(pressed.getName() == "inscrire") {
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageInscrire(mainView, cantine));
+			mainView.getContentPane().add(new pageInscrire(mainView));
 			mainView.validate();
 		}
 	}

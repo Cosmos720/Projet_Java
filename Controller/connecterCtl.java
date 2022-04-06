@@ -1,7 +1,6 @@
 package Controller;
 
 import Vue.*;
-import Model.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,11 +8,9 @@ import javax.swing.JButton;
 
 public class connecterCtl implements ActionListener{
 	private pageAccueil mainView;
-	private Cantine cantine;
 	
-	public connecterCtl(pageAccueil v, Cantine ca) {
+	public connecterCtl(pageAccueil v) {
 		mainView = v;
-		cantine = ca;
 	}
 	
 	@Override
@@ -22,7 +19,7 @@ public class connecterCtl implements ActionListener{
 		
 		if(pressed.getName() == "connecter") {
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView, null, cantine));
+			mainView.getContentPane().add(new pageMain(mainView, null));
 			mainView.validate();
 		}
 	}

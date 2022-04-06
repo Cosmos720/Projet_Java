@@ -19,10 +19,10 @@ public class pageMain extends JPanel{
         private ControleMain controleMain;
 
         
-        public pageMain(pageAccueil v, Compte c, Cantine ca) {
+        public pageMain(pageAccueil v, Compte c) {
             super();
 		    mainView = v;
-		    controleMain = new ControleMain(mainView, c, ca);
+		    controleMain = new ControleMain(mainView, c);
 
             solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");
             
