@@ -29,7 +29,7 @@ public class ControleMain implements ActionListener {
 			mainView.validate();
         }else if(pressed.getName() == "compte"){
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new pageCompte(mainView));
+            mainView.getContentPane().add(new pageCompte(mainView, compte));
 			mainView.validate();
         }else if(pressed.getName() == "reservation"){
             new pageReservation(compte);

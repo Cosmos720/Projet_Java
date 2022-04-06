@@ -1,5 +1,6 @@
 package Vue;
 
+import Model.*;
 import Controller.*;
 import javax.swing.*;
 import java.awt.*;
@@ -15,10 +16,10 @@ public class pageCompte extends JPanel{
     private controleCompte controle;
     private pagePrincipale mainView;
 
-    public pageCompte(pagePrincipale v){
+    public pageCompte(pagePrincipale v, Compte c){
         mainView = v;
         mainView.setTitle("Gestion du compte");
-        controle = new controleCompte(mainView);
+        controle = new controleCompte(mainView,c);
         setBorder(new EmptyBorder(50, 80, 50, 80));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
