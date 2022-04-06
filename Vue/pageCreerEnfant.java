@@ -14,7 +14,6 @@ public class pageCreerEnfant extends JFrame {
 	private JTextField textField_prenom = new JTextField();
 	private JComboBox<String> sexe;
 	private JTextField textField_age = new JTextField();
-	private JComboBox<String> classe;
 	private JComboBox<String> regime;
 	
 	private JButton btn_enfant = new JButton("Inscrire mon Enfant");
@@ -60,7 +59,7 @@ public class pageCreerEnfant extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new EmptyBorder(0, 0, 20, 0));
 		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(6, 2, 20, 10));
+		panel_2.setLayout(new GridLayout(5, 2, 20, 10));
 		
         // Ajout Nom
 		JLabel label_nom = new JLabel("Nom");
@@ -90,12 +89,6 @@ public class pageCreerEnfant extends JFrame {
 		panel_2.add(label_age);
 		panel_2.add(textField_age);
 		
-        // Ajout Classe
-		JLabel label_classe = new JLabel("Classe");
-		label_classe.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		classe = new JComboBox<String>(new String[]{"CP","CE1","CE2","CM1","CM2"});
-		panel_2.add(label_classe);
-		panel_2.add(classe);
 		
 		// Ajout Regime
 		JLabel label_regime = new JLabel("Regime alimentaire");
@@ -127,10 +120,6 @@ public class pageCreerEnfant extends JFrame {
 
     public int getAge(){
         return Integer.parseInt(textField_age.getText());
-    }
-
-    public String getClasse(){
-        return ((String)classe.getSelectedItem());
     }
 
 	public String getRegime(){
