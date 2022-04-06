@@ -27,7 +27,7 @@ public class pageReservation extends JFrame {
 
 	public pageReservation(Compte c) {
 		compte = c;
-		controle = new controleReservation(this);
+		controle = new controleReservation(this, c);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(575, 500);
 		setTitle("Réservations");
@@ -75,6 +75,7 @@ public class pageReservation extends JFrame {
 		onglet_2.setLayout(new BoxLayout(onglet_2, BoxLayout.Y_AXIS));
 		onglet_2.setBorder(new EmptyBorder(20, 50, 20, 50));
 		
+		
 
 		onglet_2.add(panel_2);
 
@@ -119,5 +120,9 @@ public class pageReservation extends JFrame {
 		    }
 		}
 		return dates;
+	}
+
+	public String getName(){
+		return ((String)enfant.getSelectedItem());
 	}
 }

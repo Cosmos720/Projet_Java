@@ -89,6 +89,10 @@ public class Compte {
         this.resa = resa;
     }
 
+    public void addResa(Reservation r){
+        resa.add(r);
+    }
+
     public Vector<Enfant> getEnfants(){
         return user.getEnfants();
     }

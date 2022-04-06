@@ -1,17 +1,23 @@
 package Controller;
 
 import Vue.*;
+import Model.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import Model.Reservation;
+
 import java.util.*;
 
 public class controleReservation implements ActionListener{
 	private pageReservation mainView;
+	private Compte compte;
 	
-	public controleReservation(pageReservation v) {
+	public controleReservation(pageReservation v, Compte c) {
 		mainView = v;
+		compte = c;
 	}
 	
 	@Override
@@ -26,7 +32,11 @@ public class controleReservation implements ActionListener{
 		}
 		else if(pressed.getName() == "ajouter") {
 			// Ajouter les réservations
-			ArrayList<String> a = mainView.getReservation();
+			ArrayList<String> list_resa = mainView.getReservation();
+			for(String s : list_resa){
+				Reservation r = new Reservation(mainView.getName(), s, 3, compte);
+				compte.addResa(r);
+			}
 			mainView.dispose();
 		}
 	}
