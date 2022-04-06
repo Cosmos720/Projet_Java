@@ -19,7 +19,7 @@ public class connecterCtl implements ActionListener{
 		
 		if(pressed.getName() == "connecter") {
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView));
+			mainView.getContentPane().add(new pageMain(mainView, null));
 			mainView.validate();
 		}
 	}

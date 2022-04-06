@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.border.EmptyBorder;
 import Controller.*;
-
+import Model.*;
 
 public class pageMain extends JPanel{
 
@@ -19,10 +19,10 @@ public class pageMain extends JPanel{
         private ControleMain controleMain;
 
         
-        public pageMain(pageAccueil v ) {
+        public pageMain(pageAccueil v, Compte c) {
             super();
 		    mainView = v;
-		    controleMain = new ControleMain(mainView);
+		    controleMain = new ControleMain(mainView, c);
 
             solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");
             

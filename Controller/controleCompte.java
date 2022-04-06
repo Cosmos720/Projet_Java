@@ -23,7 +23,7 @@ public class controleCompte implements ActionListener{
             new pageCreerEnfant();
         }else if(pressed.getName() == "back"){
             mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView));
+			mainView.getContentPane().add(new pageMain(mainView, null));
 			mainView.validate();
         }
     }

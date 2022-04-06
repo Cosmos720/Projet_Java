@@ -28,14 +28,14 @@ public class inscrireCtl implements ActionListener{
 		String user = this.pageInscrire.getUserName();
 		char[] mdp = this.pageInscrire.getPassword();
 		char[] mdpconfirm = this.pageInscrire.getPasswordConfirm();
-		// test System.out.println(user);
+
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "inscrire") {
 			if(Arrays.equals(mdp,mdpconfirm)){
-				System.out.println("A");
+				Compte compte = new Compte(user,String.valueOf(mdp),0,null,null);
 				mainView.getContentPane().removeAll();
-				mainView.getContentPane().add(new pageCreerParent(mainView));
+				mainView.getContentPane().add(new pageCreerParent(mainView, compte));
 				mainView.validate();
 			}
 

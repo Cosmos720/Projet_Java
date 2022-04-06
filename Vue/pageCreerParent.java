@@ -4,35 +4,27 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import Model.*;
 import Controller.*;
 
 public class pageCreerParent extends JPanel {
 
 	private JTextField textField_nom = new JTextField();
 	private JTextField textField_prenom = new JTextField();
-	private JTextField textField_sexe = new JTextField();
 	private pageAccueil mainView;
 	private JTextField textField_age = new JTextField();
-	private JTextField textField_salaire = new JTextField();
 	private JButton btn_parent = new JButton("Continuer");
 	private controleCreerParent controle;
-	
 	
 	private JComboBox<String> ls; 
 	private JComboBox<String> lSalaire; 
 	
 
 	
-
-	
-
-	
-   
-	
-	public pageCreerParent(pageAccueil v) {
+	public pageCreerParent(pageAccueil v, Compte c) {
 		super();
 		mainView = v;
-        controle = new controleCreerParent(mainView);
+        controle = new controleCreerParent(mainView, c, this);
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
@@ -100,9 +92,6 @@ public class pageCreerParent extends JPanel {
 		btn_parent.setAlignmentX(Component.CENTER_ALIGNMENT);
         btn_parent.addActionListener(controle);
 		panel_1.add(btn_parent);
-		
-		
-		
 	}
 
     public String getNom(){
