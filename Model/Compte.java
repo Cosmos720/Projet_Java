@@ -69,6 +69,10 @@ public class Compte {
         return solde;
     }
 
+    public void addSolde(int s){
+        solde += s;
+    }
+
     public Parent getuser() {
         return user;
     }

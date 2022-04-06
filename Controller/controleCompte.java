@@ -20,7 +20,7 @@ public class controleCompte implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "argent") {
-			new pageAjouterArgent();
+			new pageAjouterArgent(compte);
 		} else if(pressed.getName() == "enfant"){
             new pageCreerEnfant(compte);
         }else if(pressed.getName() == "back"){

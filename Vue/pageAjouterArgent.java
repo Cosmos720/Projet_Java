@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 import Controller.*;
+import Model.*;
 
 public class pageAjouterArgent extends JFrame {
 	private JTextField textField = new JTextField();
@@ -13,7 +14,7 @@ public class pageAjouterArgent extends JFrame {
 
     private controleAjtArgent controle;
 
-	public pageAjouterArgent() {
+	public pageAjouterArgent(Compte c) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
         */
@@ -25,7 +26,7 @@ public class pageAjouterArgent extends JFrame {
                 }
             }
         };
-        controle = new controleAjtArgent(this);
+        controle = new controleAjtArgent(this,c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400,400);
@@ -57,6 +58,7 @@ public class pageAjouterArgent extends JFrame {
 		panel.add(btn_ajouter);
 
 		setVisible(true);
+		
 	}
 
     public int getValeur(){

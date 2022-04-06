@@ -1,6 +1,7 @@
 package Controller;
 
 import Vue.*;
+import Model.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,9 +9,11 @@ import javax.swing.JButton;
 
 public class controleAjtArgent implements ActionListener{
 	private pageAjouterArgent mainView;
-	
-	public controleAjtArgent(pageAjouterArgent v) {
+	private Compte compte;
+
+	public controleAjtArgent(pageAjouterArgent v, Compte c) {
 		mainView = v;
+		compte = c;
 	}
 	
 	@Override
@@ -20,6 +23,7 @@ public class controleAjtArgent implements ActionListener{
 		if(pressed.getName() == "ajouter") {
 			// Creation d'un nouveau Enfant
             // mainView.getValeur()
+			compte.addSolde(mainView.getValeur());
 			mainView.dispose();
 			
 
