@@ -3,13 +3,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.*;
 import javax.swing.border.EmptyBorder;
+
+
 import Controller.*;
 import Model.*;
 
 public class pageMain extends JPanel{
         private JLabel label = new JLabel("Service Cantine");
+        private JLabel label_enfant = new JLabel("Mes enfants :");
         private JButton bCompte = new JButton("Compte");
         private JButton bReservation = new JButton("Réservation");
         private JButton deconnecter = new JButton("Se deconnecter");
@@ -37,28 +40,45 @@ public class pageMain extends JPanel{
             Component verticalStrut = Box.createVerticalStrut(50);
             add(verticalStrut);
             
+            
+            
             JPanel panel = new JPanel();     
             add(panel);
-            panel.setLayout(new GridLayout(3, 2, 0, 20)); 
+            panel.setLayout(new GridLayout(4, 2, 0, 20)); 
             bCompte.setName("compte");
             bCompte.addActionListener(controleMain);
+
+            /* 
+                AFFICHAGE DES ENFANTS SUR LA PAGE MAIN 
+                                                            */
+            JPanel panel_enfants = new JPanel();
+            panel_enfants.setLayout(new GridLayout(0, 1, 0, 0));
+            panel_enfants.add(label_enfant);
+            Vector<Enfant> enfants = c.getEnfants();
+            if(enfants.size() > 0 ){
+                for(Enfant e : enfants){
+                    panel_enfants.add(new JLabel(e.toString()));
+                }
+            }else{
+                panel_enfants.add(new JLabel("Vous n'avez pas encore inscrit d'enfants"));
+            }
+            panel.add(panel_enfants);
+
+
             panel.add(solde);
             panel.add(bCompte);  
             bReservation.setName("reservation");
             bReservation.addActionListener(controleMain);
             panel.add(bReservation);
             
+            Component verticalStrut_1 = Box.createVerticalStrut(50);
+            add(verticalStrut_1);
+
             deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);
             deconnecter.setName("Se deconnecter");
             deconnecter.addActionListener(controleMain);
             add(deconnecter);
-
-           
-    
         }
-
-
-       
 }
 /*
 //utilistaion du grid pour la position des objets

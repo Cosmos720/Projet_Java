@@ -10,6 +10,7 @@ public class pagePrincipale extends JFrame {
 		
 		getContentPane().add(new accueilStart(this));
 		setVisible(true);
+		setResizable(false);
 		setTitle("Accueil");
 	}
 
