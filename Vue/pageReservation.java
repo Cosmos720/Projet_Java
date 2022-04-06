@@ -23,6 +23,10 @@ public class pageReservation extends JFrame {
 	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
 	private JPanel pan = new JPanel();
 
+	private GridBagLayout gbl = new GridBagLayout();
+	private GridBagConstraints gbc = new GridBagConstraints();
+	private JPanel panel_resa = new JPanel();
+
 	private Compte compte;
 
 	public pageReservation(Compte c) {
@@ -70,29 +74,23 @@ public class pageReservation extends JFrame {
 
 		/* Onglet 2 */
 		JPanel onglet_2 = new JPanel();
-		JPanel panel_2 = new JPanel();
+		
 
 		onglet_2.setLayout(new BoxLayout(onglet_2, BoxLayout.Y_AXIS));
 		onglet_2.setBorder(new EmptyBorder(20, 50, 20, 50));
 		
 		
-        panel_2.setLayout(new GridLayout(0,1,0,0));
-        Vector<Enfant> enfants = compte.getEnfants();
-        if(enfants.size() > 0 ){
-			Vector<Reservation> resa = compte.getResa();
-            for(Enfant e : enfants){
-                panel_2.add(new JLabel(e.toString()));
-				for(Reservation r : resa){
-					panel_2.add(new JLabel(r.getDate_reservation()));
-				}
-            }
-			
-        }else{
-			panel_2.add(new JLabel("Vous n'avez pas d'enfants inscrit"));
-		}
-        
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.insets = new Insets(5,5,5,5);
 
-		onglet_2.add(panel_2);
+		gbl.columnWidths = new int[]{100,100};
+		panel_resa.setLayout(gbl);
+
+        panel_resa.setLayout(new GridLayout(0,1,0,0));
+        
+        this.showResa();
+
+		onglet_2.add(panel_resa);
 
 		onglet_1.setPreferredSize(new Dimension(575, 300));
 		onglet_1.setPreferredSize(new Dimension(575, 300));
@@ -107,6 +105,28 @@ public class pageReservation extends JFrame {
 		setResizable(false);
 	}
 	
+	public void showResa(){
+		panel_resa.removeAll();
+		Vector<Enfant> enfants = compte.getEnfants();
+        if(enfants.size() > 0 ){
+			Vector<Reservation> resa = compte.getResa();
+            for(Enfant e : enfants){
+				gbc.gridx = 1;
+                panel_resa.add(new JLabel(e.toString()));
+				for(Reservation r : resa){
+					gbc.gridx = 2;
+					panel_resa.add(new JLabel(r.getDate_reservation()));
+				}
+            }
+        }else{
+			panel_resa.add(new JLabel("Vous n'avez pas d'enfants inscrit"));
+		}
+	}
+
+	public void deleteDate(){
+		panel_date.removeAll();
+	}
+
 	public void addDate(String s) {
 		JLabel l = new JLabel(s);
 		l.setHorizontalAlignment(SwingConstants.CENTER);
