@@ -23,7 +23,7 @@ public class controleCreerParent implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "continuer") {
-			Parent p = new Parent(pageP.getNom(),pageP.getPrenom(),Integer.parseInt(pageP.getAge()),pageP.getSexe(),compte,null,/*Integer.parseInt(pageP.getSalaire()*/1600);
+			Parent p = new Parent(pageP.getNom(),pageP.getPrenom(),pageP.getAge(),pageP.getSexe(),compte,null,/*Integer.parseInt(pageP.getSalaire()*/1600);
 			compte.setParent(p);
             mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, compte));
