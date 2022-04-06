@@ -9,7 +9,6 @@ import Controller.*;
 import Model.*;
 
 public class pageMain extends JPanel{
-
         private JLabel label = new JLabel("Service Cantine");
         private JButton bCompte = new JButton("Compte");
         private JButton bReservation = new JButton("Réservation");
@@ -20,8 +19,9 @@ public class pageMain extends JPanel{
 
         
         public pageMain(pagePrincipale v, Compte c) {
-            super();
+            
 		    mainView = v;
+            mainView.setTitle("Accueil");
 		    controleMain = new ControleMain(mainView, c);
 
             solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");

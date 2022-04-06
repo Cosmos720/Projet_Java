@@ -49,6 +49,7 @@ public class pageCreerEnfant extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400,400);
+		setTitle("Information de l'enfant");
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
 		JPanel panel_1 = new JPanel();

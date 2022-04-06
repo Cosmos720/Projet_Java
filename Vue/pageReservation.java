@@ -23,6 +23,7 @@ public class pageReservation extends JFrame {
 		controle = new controleReservation(this);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400,400);
+		setTitle("Réservations");
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.X_AXIS));
 		
 		JPanel panel = new JPanel();

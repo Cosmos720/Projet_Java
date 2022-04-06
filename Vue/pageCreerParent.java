@@ -48,6 +48,7 @@ public class pageCreerParent extends JPanel {
         };
 
 		mainView = v;
+		mainView.setTitle("Information du parent");
         controle = new controleCreerParent(mainView, c, this);
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

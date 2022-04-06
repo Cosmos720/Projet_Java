@@ -12,13 +12,14 @@ public class pageConnecter extends JPanel {
 	private JPasswordField passwordField = new JPasswordField();
 	private JLabel label = new JLabel("Connexion");
 	private JButton b1 = new JButton("Se connecter");
+	private JButton b2 = new JButton("Retour");
 	
 	private pagePrincipale mainView;
 	private connecterCtl ctl;
 	
 	public pageConnecter(pagePrincipale v) {
-		super();
 		mainView = v;
+		mainView.setTitle("Connexion");
 		ctl = new connecterCtl(mainView);
 		
 		setBorder(new EmptyBorder(50, 50, 100, 50));
@@ -60,6 +61,14 @@ public class pageConnecter extends JPanel {
 		b1.setName("connecter");
 		b1.addActionListener(ctl);
 		add(b1);
+
+		Component verticalStrut_2 = Box.createVerticalStrut(50);
+		add(verticalStrut_2);
+		
+		b2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		b2.setName("retour");
+		b2.addActionListener(ctl);
+		add(b2);
 	}
 
 	public String getUsername() {
