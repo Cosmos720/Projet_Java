@@ -11,7 +11,7 @@ public class pageCreerParent extends JPanel {
 
 	private JTextField textField_nom = new JTextField();
 	private JTextField textField_prenom = new JTextField();
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	private JTextField textField_age = new JTextField();
 	private JButton btn_parent = new JButton("Continuer");
 	private controleCreerParent controle;
@@ -21,7 +21,7 @@ public class pageCreerParent extends JPanel {
 	
 
 	
-	public pageCreerParent(pageAccueil v, Compte c) {
+	public pageCreerParent(pagePrincipale v, Compte c) {
 		super();
 		mainView = v;
         controle = new controleCreerParent(mainView, c, this);
@@ -69,6 +69,17 @@ public class pageCreerParent extends JPanel {
 		panel_2.add(ls);
 		
         // Ajout Age
+		/**
+        * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
+        */
+        KeyAdapter Digit=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isDigit(c)){
+                    e.consume();
+                }
+            }
+        };
 		JLabel label_age = new JLabel("Age");
 		label_age.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_2.add(label_age);

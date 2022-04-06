@@ -15,10 +15,10 @@ public class pageInscrire extends JPanel {
 	private JLabel label_mdp_conf = new JLabel("Confirmer le mot de passe");
 	private JButton b1 = new JButton("S'inscrire");
 	
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	private inscrireCtl ctl;
 	
-	public pageInscrire(pageAccueil v) {
+	public pageInscrire(pagePrincipale v) {
 		super();
 		mainView = v;
 		ctl = new inscrireCtl(mainView, this);

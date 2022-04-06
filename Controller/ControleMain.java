@@ -6,10 +6,10 @@ import Vue.*;
 import Model.*;
 
 public class ControleMain implements ActionListener {
-    private pageAccueil mainView;
+    private pagePrincipale mainView;
     private Compte compte;
 
-    public ControleMain(pageAccueil v, Compte c){
+    public ControleMain(pagePrincipale v, Compte c){
         mainView = v;
         compte = c;
     }

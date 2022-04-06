@@ -7,9 +7,9 @@ import Vue.*;
 
 public class acceuilStartCtl implements ActionListener{
 	
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	
-	public acceuilStartCtl(pageAccueil v) {
+	public acceuilStartCtl(pagePrincipale v) {
 		mainView = v;
 	}
 	

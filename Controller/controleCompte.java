@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class controleCompte implements ActionListener{
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	
-	public controleCompte(pageAccueil v) {
+	public controleCompte(pagePrincipale v) {
 		mainView = v;
 	}
 	

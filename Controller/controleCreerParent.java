@@ -8,11 +8,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class controleCreerParent implements ActionListener{
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	private pageCreerParent pageP;
 	private Compte compte;
 	
-	public controleCreerParent(pageAccueil v, Compte c, pageCreerParent p) {
+	public controleCreerParent(pagePrincipale v, Compte c, pageCreerParent p) {
 		mainView = v;
 		compte = c;
 		pageP = p;
