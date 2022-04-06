@@ -11,13 +11,14 @@ public class Cantine {
     /**
      * Default constructor
      */
-    public Cantine(String nom_cantine, int capacité, int horaire_debut, int horaire_fin, Vector<Enfant> enfants, Vector<Repas> repas) {
+    public Cantine(String nom_cantine, int capacité, int horaire_debut, int horaire_fin, Vector<Enfant> enfants, Vector<Repas> repas, Vector<Compte> comptes) {
             this.nom_cantine = nom_cantine;
             this.capacité = capacité;
             this.horaire_debut = horaire_debut;
             this.horaire_fin = horaire_fin;
             this.enfants = enfants;
             this.repas = repas;
+            this.comptes = comptes;
         }
 
     /**
@@ -49,6 +50,22 @@ public class Cantine {
      * 
      */
     private Vector<Repas> repas;
+
+    /**
+     * 
+     */
+    private Vector<Compte> comptes;
+
+
+    public Vector<Compte> getComptes() {
+        return comptes;
+    }
+
+
+
+    public void setComptes(Vector<Compte> comptes) {
+        this.comptes = comptes;
+    }
 
 
 
