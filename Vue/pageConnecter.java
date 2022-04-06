@@ -13,10 +13,10 @@ public class pageConnecter extends JPanel {
 	private JLabel label = new JLabel("Connexion");
 	private JButton b1 = new JButton("Se connecter");
 	
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	private connecterCtl ctl;
 	
-	public pageConnecter(pageAccueil v) {
+	public pageConnecter(pagePrincipale v) {
 		super();
 		mainView = v;
 		ctl = new connecterCtl(mainView);

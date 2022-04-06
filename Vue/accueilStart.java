@@ -13,9 +13,9 @@ public class accueilStart extends JPanel {
 	private JLabel label = new JLabel("Bienvenue");
 	
 	private acceuilStartCtl ctl;
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	
-	public accueilStart(pageAccueil v) {
+	public accueilStart(pagePrincipale v) {
 		mainView = v;
 		ctl = new acceuilStartCtl(mainView);
 		

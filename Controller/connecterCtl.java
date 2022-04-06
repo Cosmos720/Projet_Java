@@ -7,9 +7,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class connecterCtl implements ActionListener{
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	
-	public connecterCtl(pageAccueil v) {
+	public connecterCtl(pagePrincipale v) {
 		mainView = v;
 	}
 	

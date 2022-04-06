@@ -15,11 +15,11 @@ public class pageMain extends JPanel{
         private JButton bReservation = new JButton("Réservation");
         private JButton deconnecter = new JButton("Se deconnecter");
         private JLabel solde = new JLabel("Solde");
-        private pageAccueil mainView;
+        private pagePrincipale mainView;
         private ControleMain controleMain;
 
         
-        public pageMain(pageAccueil v, Compte c) {
+        public pageMain(pagePrincipale v, Compte c) {
             super();
 		    mainView = v;
 		    controleMain = new ControleMain(mainView, c);

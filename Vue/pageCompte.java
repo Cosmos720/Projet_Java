@@ -13,9 +13,9 @@ public class pageCompte extends JPanel{
     private JButton btn_back = new JButton("Retour");
 
     private controleCompte controle;
-    private pageAccueil mainView;
+    private pagePrincipale mainView;
 
-    public pageCompte(pageAccueil v){
+    public pageCompte(pagePrincipale v){
         mainView = v;
         controle = new controleCompte(mainView);
         setBorder(new EmptyBorder(50, 80, 50, 80));

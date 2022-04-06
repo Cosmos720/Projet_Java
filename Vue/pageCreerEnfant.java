@@ -1,7 +1,8 @@
 package Vue;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
 import Controller.*;
@@ -13,7 +14,6 @@ public class pageCreerEnfant extends JFrame {
 	private JTextField textField_prenom = new JTextField();
 	private JComboBox<String> sexe;
 	private JTextField textField_age = new JTextField();
-	private JComboBox<String> classe;
 	private JComboBox<String> regime;
 	
 	private JButton btn_enfant = new JButton("Inscrire mon Enfant");
@@ -21,7 +21,30 @@ public class pageCreerEnfant extends JFrame {
 	private controleCreerEnfant controle;
 	
 	public pageCreerEnfant() {
-		super();
+		/**
+        * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
+        */
+        KeyAdapter Digit=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isDigit(c)){
+                    e.consume();
+                }
+            }
+        };
+
+        /**
+         * Oblige l'utilisateur de mettre uniquement des charactere dans un FormatedTextField donnée
+         */        
+        KeyAdapter Letter=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isAlphabetic(c)){
+                    e.consume();
+                }
+            }
+        };
+
 		controle = new controleCreerEnfant(this);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -36,17 +59,19 @@ public class pageCreerEnfant extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new EmptyBorder(0, 0, 20, 0));
 		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(6, 2, 20, 10));
+		panel_2.setLayout(new GridLayout(5, 2, 20, 10));
 		
         // Ajout Nom
 		JLabel label_nom = new JLabel("Nom");
 		label_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_nom.addKeyListener(Letter);
 		panel_2.add(label_nom);
 		panel_2.add(textField_nom);
 		
         // Ajout Prenom
 		JLabel label_prenom = new JLabel("Prenom");
 		label_prenom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_prenom.addKeyListener(Letter);
 		panel_2.add(label_prenom);
 		panel_2.add(textField_prenom);
 		
@@ -60,15 +85,10 @@ public class pageCreerEnfant extends JFrame {
         // Ajout Age
 		JLabel label_age = new JLabel("Age");
 		label_age.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_age.addKeyListener(Digit);
 		panel_2.add(label_age);
 		panel_2.add(textField_age);
 		
-        // Ajout Classe
-		JLabel label_classe = new JLabel("Classe");
-		label_classe.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		classe = new JComboBox<String>(new String[]{"CP","CE1","CE2","CM1","CM2"});
-		panel_2.add(label_classe);
-		panel_2.add(classe);
 		
 		// Ajout Regime
 		JLabel label_regime = new JLabel("Regime alimentaire");
@@ -98,12 +118,8 @@ public class pageCreerEnfant extends JFrame {
         return ((String)sexe.getSelectedItem());
     }
 
-    public String getAge(){
-        return this.textField_age.getText();
-    }
-
-    public String getClasse(){
-        return ((String)classe.getSelectedItem());
+    public int getAge(){
+        return Integer.parseInt(textField_age.getText());
     }
 
 	public String getRegime(){

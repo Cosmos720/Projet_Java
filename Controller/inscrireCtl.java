@@ -13,11 +13,11 @@ public class inscrireCtl implements ActionListener{
 
 	//atribut
 	private pageInscrire pageInscrire;
-	private pageAccueil mainView;
+	private pagePrincipale mainView;
 	
 	
 	
-	public inscrireCtl(pageAccueil v, pageInscrire a) {
+	public inscrireCtl(pagePrincipale v, pageInscrire a) {
 		mainView = v;
 		pageInscrire = a;
 	}
