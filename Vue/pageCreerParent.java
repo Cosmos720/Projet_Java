@@ -1,7 +1,8 @@
 package Vue;
 
-import java.awt.*;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
 import Model.*;
@@ -22,7 +23,30 @@ public class pageCreerParent extends JPanel {
 
 	
 	public pageCreerParent(pagePrincipale v, Compte c) {
-		super();
+		/**
+        * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
+        */
+        KeyAdapter Digit=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isDigit(c)){
+                    e.consume();
+                }
+            }
+        };
+
+        /**
+         * Oblige l'utilisateur de mettre uniquement des charactere dans un FormatedTextField donnée
+         */        
+        KeyAdapter Letter=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isAlphabetic(c)){
+                    e.consume();
+                }
+            }
+        };
+
 		mainView = v;
         controle = new controleCreerParent(mainView, c, this);
 
@@ -50,12 +74,14 @@ public class pageCreerParent extends JPanel {
         // Ajout Nom
 		JLabel label_nom = new JLabel("Nom");
 		label_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_nom.addKeyListener(Letter);
 		panel_2.add(label_nom);
 		panel_2.add(textField_nom);
 		
         // Ajout Prenom
 		JLabel label_prenom = new JLabel("Prenom");
 		label_prenom.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_prenom.addKeyListener(Letter);
 		panel_2.add(label_prenom);
 		panel_2.add(textField_prenom);
 		
@@ -69,19 +95,9 @@ public class pageCreerParent extends JPanel {
 		panel_2.add(ls);
 		
         // Ajout Age
-		/**
-        * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
-        */
-        KeyAdapter Digit=new KeyAdapter(){
-            public void keyTyped(KeyEvent e){
-                char c=e.getKeyChar();
-                if(!Character.isDigit(c)){
-                    e.consume();
-                }
-            }
-        };
 		JLabel label_age = new JLabel("Age");
 		label_age.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textField_age.addKeyListener(Digit);
 		panel_2.add(label_age);
 		panel_2.add(textField_age);
 		
@@ -117,8 +133,8 @@ public class pageCreerParent extends JPanel {
         return ((String)ls.getSelectedItem());
     }
 
-    public String getAge(){
-        return this.textField_age.getText();
+    public int getAge(){
+        return Integer.parseInt(textField_age.getText());
     }
 
     public String getSalaire(){

@@ -2,8 +2,9 @@ package Vue;
 
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.*;
+import javax.swing.border.EmptyBorder;
 import Controller.*;
 
 public class pageAjouterArgent extends JFrame {
@@ -13,7 +14,17 @@ public class pageAjouterArgent extends JFrame {
     private controleAjtArgent controle;
 
 	public pageAjouterArgent() {
-		super();
+		/**
+        * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
+        */
+        KeyAdapter Digit=new KeyAdapter(){
+            public void keyTyped(KeyEvent e){
+                char c=e.getKeyChar();
+                if(!Character.isDigit(c)){
+                    e.consume();
+                }
+            }
+        };
         controle = new controleAjtArgent(this);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -35,6 +46,7 @@ public class pageAjouterArgent extends JFrame {
 		panel_1.add(lblValeurenEuro);
 		
 		// Ajouter textfield
+		textField.addKeyListener(Digit);
 		panel_1.add(textField);
 		
 		// Ajouter le bouton "Ajouter"
@@ -46,8 +58,8 @@ public class pageAjouterArgent extends JFrame {
 		setVisible(true);
 	}
 
-    public String getValeur(){
-        return textField.getText();
+    public int getValeur(){
+        return Integer.parseInt(textField.getText());
     }
 
 }
