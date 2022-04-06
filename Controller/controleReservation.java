@@ -37,7 +37,6 @@ public class controleReservation implements ActionListener{
 				Reservation r = new Reservation(mainView.getName(), s, 3, compte);
 				compte.addResa(r);
 			}
-			mainView.dispose();
 		}
 	}
 

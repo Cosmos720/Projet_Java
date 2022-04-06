@@ -76,6 +76,21 @@ public class pageReservation extends JFrame {
 		onglet_2.setBorder(new EmptyBorder(20, 50, 20, 50));
 		
 		
+        panel_2.setLayout(new GridLayout(0,1,0,0));
+        Vector<Enfant> enfants = compte.getEnfants();
+        if(enfants.size() > 0 ){
+			Vector<Reservation> resa = compte.getResa();
+            for(Enfant e : enfants){
+                panel_2.add(new JLabel(e.toString()));
+				for(Reservation r : resa){
+					panel_2.add(new JLabel(r.getDate_reservation()));
+				}
+            }
+			
+        }else{
+			panel_2.add(new JLabel("Vous n'avez pas d'enfants inscrit"));
+		}
+        
 
 		onglet_2.add(panel_2);
 
@@ -123,6 +138,6 @@ public class pageReservation extends JFrame {
 	}
 
 	public String getName(){
-		return ((String)enfant.getSelectedItem());
+		return ((Enfant)enfant.getSelectedItem()).toString();
 	}
 }
