@@ -9,15 +9,13 @@ public class ControleMain implements ActionListener {
     private pageAccueil mainView;
     private Compte compte;
 
-    public ControleMain(pageAccueil v ){
+    public ControleMain(pageAccueil v, Compte c){
         mainView = v;
-        compte = new Compte(1, "a", 10, null, null);
-        
+        compte = c;
     }
 
     public int getSolde(){
        return compte.getSolde();
-
     }
 
 
@@ -27,7 +25,7 @@ public class ControleMain implements ActionListener {
 
 		if(pressed.getName() == "Se deconnecter") {
             mainView.getContentPane().removeAll();
-            mainView.getContentPane().add(new pageAccueil());
+            mainView.getContentPane().add(new accueilStart(mainView));
 			mainView.validate();
         }else if(pressed.getName() == "compte"){
             mainView.getContentPane().removeAll();

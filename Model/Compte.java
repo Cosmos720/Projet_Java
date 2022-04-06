@@ -10,7 +10,7 @@ public class Compte {
     /**
      * Default constructor
      */
-    public Compte(int id, String mdp, int solde, Parent user, Vector<Reservation> resa) {
+    public Compte(String id, String mdp, int solde, Parent user, Vector<Reservation> resa) {
         this.id = id;
         this.mdp = mdp;
         this.solde = solde;
@@ -22,7 +22,7 @@ public class Compte {
     /**
      *
      */
-    private int id;
+    private String id;
 
     /**
      *
@@ -44,13 +44,13 @@ public class Compte {
      */
     private Vector<Reservation> resa;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
 
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -71,6 +71,10 @@ public class Compte {
 
     public Parent getuser() {
         return user;
+    }
+
+    public void setParent(Parent p){
+        this.user = p;
     }
 
     public Vector<Reservation> getResa() {
