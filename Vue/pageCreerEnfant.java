@@ -73,7 +73,7 @@ public class pageCreerEnfant extends JFrame {
 		// Ajout Regime
 		JLabel label_regime = new JLabel("Regime alimentaire");
 		label_regime.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		regime = new JComboBox<String>(new String[]{"Vegan", "Vegetarien", "Sans porc"});
+		regime = new JComboBox<String>(new String[]{"Aucun","Vegan", "Vegetarien", "Sans porc"});
 		panel_2.add(label_regime);
 		panel_2.add(regime);
 		
