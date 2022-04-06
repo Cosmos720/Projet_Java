@@ -8,9 +8,13 @@ import javax.swing.*;
 
 public class controleCompte implements ActionListener{
 	private pageAccueil mainView;
+	private Compte compte;
+	private Cantine cantine;
 	
-	public controleCompte(pageAccueil v) {
+	public controleCompte(pageAccueil v, Compte c, Cantine ca) {
 		mainView = v;
+		compte = c;
+		cantine = ca;
 	}
 	
 	@Override
@@ -23,7 +27,7 @@ public class controleCompte implements ActionListener{
             new pageCreerEnfant();
         }else if(pressed.getName() == "back"){
             mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView, null));
+			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();
         }
     }

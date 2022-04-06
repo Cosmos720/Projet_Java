@@ -21,10 +21,10 @@ public class pageCreerParent extends JPanel {
 	
 
 	
-	public pageCreerParent(pageAccueil v, Compte c) {
+	public pageCreerParent(pageAccueil v, Compte c, Cantine ca) {
 		super();
 		mainView = v;
-        controle = new controleCreerParent(mainView, c, this);
+        controle = new controleCreerParent(mainView, c, this, ca);
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		

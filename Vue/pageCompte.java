@@ -1,6 +1,7 @@
 package Vue;
 
 import Controller.*;
+import Model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,9 +16,9 @@ public class pageCompte extends JPanel{
     private controleCompte controle;
     private pageAccueil mainView;
 
-    public pageCompte(pageAccueil v){
+    public pageCompte(pageAccueil v, Compte c, Cantine ca){
         mainView = v;
-        controle = new controleCompte(mainView);
+        controle = new controleCompte(mainView, c, ca);
         setBorder(new EmptyBorder(50, 80, 50, 80));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

@@ -14,12 +14,13 @@ public class inscrireCtl implements ActionListener{
 	//atribut
 	private pageInscrire pageInscrire;
 	private pageAccueil mainView;
+	private Cantine cantine;
 	
 	
-	
-	public inscrireCtl(pageAccueil v, pageInscrire a) {
+	public inscrireCtl(pageAccueil v, pageInscrire a, Cantine c) {
 		mainView = v;
 		pageInscrire = a;
+		cantine = c;
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class inscrireCtl implements ActionListener{
 			if(Arrays.equals(mdp,mdpconfirm)){
 				Compte compte = new Compte(user,String.valueOf(mdp),0,null,null);
 				mainView.getContentPane().removeAll();
-				mainView.getContentPane().add(new pageCreerParent(mainView, compte));
+				mainView.getContentPane().add(new pageCreerParent(mainView, compte, cantine));
 				mainView.validate();
 			}
 
