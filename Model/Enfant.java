@@ -10,13 +10,11 @@ public class Enfant extends Personne {
     /**
      * Default constructor
      */    
-    public Enfant(String nom, String prenom, int age, String sexe, int horaires_cours, String allergies,
-            Set<Parent> parents, Set<Repas> repas, Cantine cantine) {
+    public Enfant(String nom, String prenom, int age, String sexe, String regime,
+            Compte compte, Cantine cantine) {
         super(nom, prenom, age, sexe);
-        this.horaires_cours = horaires_cours;
-        this.allergies = allergies;
-        this.parents = parents;
-        this.repas = repas;
+        this.regime = regime;
+        this.compte = compte;
         this.cantine = cantine;
     }
 
@@ -28,22 +26,34 @@ public class Enfant extends Personne {
     /**
      * 
      */
-    private String allergies;
+    private String regime;
 
     /**
      * 
      */
-    private Set<Parent> parents;
-
-    /**
-     * 
-     */
-    private Set<Repas> repas;
+    private Compte compte;
 
     /**
      * 
      */
     private Cantine cantine;
+
+    
+    public String getRegime() {
+        return regime;
+    }
+
+    public void setRegime(String regime) {
+        this.regime = regime;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
 
     public int getHoraires_cours() {
         return horaires_cours;
@@ -54,27 +64,11 @@ public class Enfant extends Personne {
     }
 
     public String getAllergies() {
-        return allergies;
+        return regime;
     }
 
     public void setAllergies(String allergies) {
-        this.allergies = allergies;
-    }
-
-    public Set<Parent> getParents() {
-        return parents;
-    }
-
-    public void setParents(Set<Parent> parents) {
-        this.parents = parents;
-    }
-
-    public Set<Repas> getRepas() {
-        return repas;
-    }
-
-    public void setRepas(Set<Repas> repas) {
-        this.repas = repas;
+        this.regime = allergies;
     }
 
     public Cantine getCantine() {
