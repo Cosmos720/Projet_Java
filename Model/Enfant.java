@@ -9,14 +9,10 @@ public class Enfant extends Personne {
 
     /**
      * Default constructor
-     */
-    
-    private String classe;
-
-    public Enfant(String nom, String prenom, int age, String sexe, String classe, int horaires_cours, String allergies,
+     */    
+    public Enfant(String nom, String prenom, int age, String sexe, int horaires_cours, String allergies,
             Set<Parent> parents, Set<Repas> repas, Cantine cantine) {
         super(nom, prenom, age, sexe);
-        this.classe = classe;
         this.horaires_cours = horaires_cours;
         this.allergies = allergies;
         this.parents = parents;
@@ -48,14 +44,6 @@ public class Enfant extends Personne {
      * 
      */
     private Cantine cantine;
-
-    public String getClasse() {
-        return classe;
-    }
-
-    public void setClasse(String classe) {
-        this.classe = classe;
-    }
 
     public int getHoraires_cours() {
         return horaires_cours;

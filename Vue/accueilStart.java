@@ -16,7 +16,6 @@ public class accueilStart extends JPanel {
 	private pagePrincipale mainView;
 	
 	public accueilStart(pagePrincipale v) {
-		super();
 		mainView = v;
 		ctl = new acceuilStartCtl(mainView);
 		
