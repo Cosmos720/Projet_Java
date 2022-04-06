@@ -22,7 +22,7 @@ public class controleCompte implements ActionListener{
 		if(pressed.getName() == "argent") {
 			new pageAjouterArgent();
 		} else if(pressed.getName() == "enfant"){
-            new pageCreerEnfant();
+            new pageCreerEnfant(compte);
         }else if(pressed.getName() == "back"){
             mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, compte));

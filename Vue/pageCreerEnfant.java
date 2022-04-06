@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.EmptyBorder;
 
+import Model.*;
 import Controller.*;
 
 public class pageCreerEnfant extends JFrame {
@@ -20,7 +21,7 @@ public class pageCreerEnfant extends JFrame {
 
 	private controleCreerEnfant controle;
 	
-	public pageCreerEnfant() {
+	public pageCreerEnfant(Compte c) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
         */
@@ -45,7 +46,7 @@ public class pageCreerEnfant extends JFrame {
             }
         };
 
-		controle = new controleCreerEnfant(this);
+		controle = new controleCreerEnfant(this,c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(400,400);

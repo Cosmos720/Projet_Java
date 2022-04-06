@@ -1,6 +1,7 @@
 package Controller;
 
 import Vue.*;
+import Model.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,9 +9,11 @@ import javax.swing.JButton;
 
 public class controleCreerEnfant implements ActionListener{
 	private pageCreerEnfant mainView;
+	private Compte compte;
 	
-	public controleCreerEnfant(pageCreerEnfant v) {
+	public controleCreerEnfant(pageCreerEnfant v, Compte c) {
 		mainView = v;
+		compte = c;
 	}
 	
 	@Override
@@ -19,11 +22,8 @@ public class controleCreerEnfant implements ActionListener{
 		
 		if(pressed.getName() == "creer") {
 			// Creation d'un nouveau Enfant
-            /*mainView.getAge()
-            mainView.getPrenom()
-            mainView.getNom()
-            mainView.getSexe()
-            mainView.getClasse()*/
+			Enfant enfant = new Enfant(mainView.getNom(), mainView.getPrenom(),mainView.getAge(),mainView.getSexe(),mainView.getRegime(),compte,null);
+			compte.getuser().addEnfant(enfant);
             mainView.dispose();
 		}
 	}
