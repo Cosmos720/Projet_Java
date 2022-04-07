@@ -8,7 +8,7 @@ public class Reservation {
      * Default constructor
      */
     
-    public Reservation(String nom_associé, String date_reservation, int prix, Compte compte) {
+    public Reservation(String nom_associé, String date_reservation, double prix, Compte compte) {
         this.nom_associé = nom_associé;
         this.date_reservation = date_reservation;
         this.prix = prix;
@@ -29,7 +29,7 @@ public class Reservation {
     /**
      * 
      */
-    private int prix;
+    private double prix;
 
     /**
      * 
@@ -53,11 +53,11 @@ public class Reservation {
         this.date_reservation = date_reservation;
     }
 
-    public int getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -70,7 +70,7 @@ public class Reservation {
     }
 
     public String toString(){
-        return nom_associé + " " + date_reservation;
+        return nom_associé + " " + date_reservation + " " + prix + "€";
     }
 
 }

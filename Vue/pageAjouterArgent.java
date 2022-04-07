@@ -29,7 +29,6 @@ public class pageAjouterArgent extends JFrame {
         controle = new controleAjtArgent(this,c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(400,400);
 		setTitle("Créditer");
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
@@ -57,12 +56,16 @@ public class pageAjouterArgent extends JFrame {
         btn_ajouter.addActionListener(controle);
 		panel.add(btn_ajouter);
 
+		setBounds(650, 100, 700, 700);
 		setVisible(true);
-		
+		setResizable(false);
 	}
 
-    public int getValeur(){
-        return Integer.parseInt(textField.getText());
+    public double getValeur(){
+		if(textField.getText().length() > 0){
+        	return (double)Integer.parseInt(textField.getText());
+		}
+		return 0;
     }
 
 }

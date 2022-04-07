@@ -8,10 +8,14 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.border.EmptyBorder;
 
-public class pageReservation extends JFrame {
+public class pageReservation extends JPanel {
 	private controleReservation controle;
 	private Compte compte;
-	
+	private pagePrincipale mainView;
+
+	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
+	private JPanel pan = new JPanel();
+	private JButton b1 = new JButton("Retour");
 	/* 
 		ONGLET 1
 							*/
@@ -24,8 +28,7 @@ public class pageReservation extends JFrame {
 	private JButton btn_add = new JButton("+");
 	private JComboBox<Enfant> enfant;
 
-	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
-	private JPanel pan = new JPanel();
+	
 
 	/*
 			ONGLET 2
@@ -38,12 +41,12 @@ public class pageReservation extends JFrame {
 
 	
 
-	public pageReservation(Compte c) {
+	public pageReservation(pagePrincipale v, Compte c) {
 		compte = c;
-		controle = new controleReservation(this, c);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(575, 500);
-		setTitle("Réservations");
+		mainView = v;
+		controle = new controleReservation(this, c, mainView);
+	
+		mainView.setTitle("Réservations");
 		
 		
 
@@ -76,7 +79,7 @@ public class pageReservation extends JFrame {
 		JScrollPane scrollablePane=new JScrollPane();
 		scrollablePane.setViewportView(dates);
         scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollablePane.setPreferredSize(new Dimension(575, 290));
+        scrollablePane.setPreferredSize(new Dimension(675, 290));
         panel_date.add(scrollablePane);
 	
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -91,24 +94,27 @@ public class pageReservation extends JFrame {
 		resa = new JList<Reservation>(compte.getResa());
 		scrollablePane2.setViewportView(resa);
         scrollablePane2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollablePane2.setPreferredSize(new Dimension(575, 290));
+        scrollablePane2.setPreferredSize(new Dimension(675, 590));
         panel_resa.add(scrollablePane2);
 
         onglet_2.add(panel_resa);
         
         
 
-		onglet_1.setPreferredSize(new Dimension(575, 300));
-		onglet_2.setPreferredSize(new Dimension(575, 300));
+		onglet_1.setPreferredSize(new Dimension(675, 500));
+		onglet_2.setPreferredSize(new Dimension(675, 625));
 
+		
 		pan.add(onglets);
-		getContentPane().add(pan);
-
+		b1.setName("retour");
+		b1.addActionListener(controle);
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		add(pan);
+		add(b1);
 		onglets.addTab("Ajouter une reservation", onglet_1);
         onglets.addTab("Voir mes réservations", onglet_2);
-		setBounds(750,300,600,375);
+		setBounds(650, 100, 700, 700);
 		setVisible(true);
-		setResizable(false);
 	}
 	
 	public void showResa(){

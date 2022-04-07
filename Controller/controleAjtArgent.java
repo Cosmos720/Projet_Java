@@ -21,14 +21,9 @@ public class controleAjtArgent implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "ajouter") {
-			// Creation d'un nouveau Enfant
-            // mainView.getValeur()
+			System.out.println("a");
 			compte.addSolde(mainView.getValeur());
 			mainView.dispose();
-			
-
-
-
 		}
 	}
 

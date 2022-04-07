@@ -14,7 +14,8 @@ public class ControleMain implements ActionListener {
         compte = c;
     }
 
-    public int getSolde(){
+    public double getSolde(){
+        System.out.println("b");
        return compte.getSolde();
     }
 
@@ -32,7 +33,9 @@ public class ControleMain implements ActionListener {
             mainView.getContentPane().add(new pageCompte(mainView, compte));
 			mainView.validate();
         }else if(pressed.getName() == "reservation"){
-            new pageReservation(compte);
+            mainView.getContentPane().removeAll();
+            mainView.getContentPane().add(new pageReservation(mainView, compte));
+			mainView.validate();
         }
 
     }
