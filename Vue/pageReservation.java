@@ -5,17 +5,21 @@ import Model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.util.*;
-
 import javax.swing.border.EmptyBorder;
 
 public class pageReservation extends JFrame {
 	private controleReservation controle;
+	private Compte compte;
 	
+	/* 
+		ONGLET 1
+							*/
 	private JTextField textField = new JTextField();
 	private JButton btn_popup = new JButton("...");
 	private JPanel panel_date = new JPanel();
+	private DefaultListModel<String> model = new DefaultListModel<>();
+	private JList<String> dates = new JList<>(model);
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
 	private JComboBox<Enfant> enfant;
@@ -23,11 +27,16 @@ public class pageReservation extends JFrame {
 	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
 	private JPanel pan = new JPanel();
 
-	private GridBagLayout gbl = new GridBagLayout();
-	private GridBagConstraints gbc = new GridBagConstraints();
-	private JPanel panel_resa = new JPanel();
+	/*
+			ONGLET 2
+								*/
 
-	private Compte compte;
+	private JPanel panel_resa = new JPanel();
+	private DefaultListModel<Reservation> model_resa;
+	private JList<Reservation> resa;
+
+
+	
 
 	public pageReservation(Compte c) {
 		compte = c;
@@ -63,8 +72,12 @@ public class pageReservation extends JFrame {
 		
 		onglet_1.add(panel_1);
 		onglet_1.add(panel_date);
-		panel_date.setLayout(new GridLayout(0, 1, 0, 0));
-		
+		panel_date.setLayout(new BoxLayout(panel_date, BoxLayout.Y_AXIS));
+		JScrollPane scrollablePane=new JScrollPane();
+		scrollablePane.setViewportView(dates);
+        scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollablePane.setPreferredSize(new Dimension(575, 290));
+        panel_date.add(scrollablePane);
 	
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
@@ -74,26 +87,19 @@ public class pageReservation extends JFrame {
 
 		/* Onglet 2 */
 		JPanel onglet_2 = new JPanel();
-		
+		JScrollPane scrollablePane2=new JScrollPane();
+		resa = new JList<Reservation>(compte.getResa());
+		scrollablePane2.setViewportView(resa);
+        scrollablePane2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollablePane2.setPreferredSize(new Dimension(575, 290));
+        panel_resa.add(scrollablePane2);
 
-		onglet_2.setLayout(new BoxLayout(onglet_2, BoxLayout.Y_AXIS));
-		onglet_2.setBorder(new EmptyBorder(20, 50, 20, 50));
-		
-		
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.insets = new Insets(5,5,5,5);
-
-		gbl.columnWidths = new int[]{100,100};
-		panel_resa.setLayout(gbl);
-
-        panel_resa.setLayout(new GridLayout(0,1,0,0));
+        onglet_2.add(panel_resa);
         
-        this.showResa();
-
-		onglet_2.add(panel_resa);
+        
 
 		onglet_1.setPreferredSize(new Dimension(575, 300));
-		onglet_1.setPreferredSize(new Dimension(575, 300));
+		onglet_2.setPreferredSize(new Dimension(575, 300));
 
 		pan.add(onglets);
 		getContentPane().add(pan);
@@ -106,31 +112,20 @@ public class pageReservation extends JFrame {
 	}
 	
 	public void showResa(){
-		panel_resa.removeAll();
-		Vector<Enfant> enfants = compte.getEnfants();
-        if(enfants.size() > 0 ){
-			Vector<Reservation> resa = compte.getResa();
-            for(Enfant e : enfants){
-				gbc.gridx = 1;
-                panel_resa.add(new JLabel(e.toString()));
-				for(Reservation r : resa){
-					gbc.gridx = 2;
-					panel_resa.add(new JLabel(r.getDate_reservation()));
-				}
-            }
-        }else{
-			panel_resa.add(new JLabel("Vous n'avez pas d'enfants inscrit"));
+		model_resa = new DefaultListModel<Reservation>();
+		Vector<Reservation> reservation = compte.getResa();
+		for(Reservation r : reservation){
+			model_resa.addElement(r);
 		}
+		resa.setModel(model_resa);
 	}
 
 	public void deleteDate(){
-		panel_date.removeAll();
+		model.removeAllElements();
 	}
 
 	public void addDate(String s) {
-		JLabel l = new JLabel(s);
-		l.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_date.add(l);
+		model.addElement(s);
 		this.clearText();
 		this.validate();
 	}
@@ -148,13 +143,12 @@ public class pageReservation extends JFrame {
 	}
 	
 	public ArrayList<String> getReservation() {
-		ArrayList<String> dates = new ArrayList<String>();
-		for (Component label : panel_date.getComponents()) {
-		    if ( label instanceof JLabel ) {
-		    	dates.add(((JLabel) label).getText());
-		    }
-		}
-		return dates;
+		ArrayList<String> date_list = new ArrayList<String>();
+		ListModel m = dates.getModel();
+		for(int i=0; i < m.getSize(); i++){
+			 date_list.add((String)m.getElementAt(i));  
+	    }
+		return date_list;
 	}
 
 	public String getName(){
