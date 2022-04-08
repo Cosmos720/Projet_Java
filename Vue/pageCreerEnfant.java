@@ -49,7 +49,6 @@ public class pageCreerEnfant extends JFrame {
 		controle = new controleCreerEnfant(this,c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(400,400);
 		setTitle("Information de l'enfant");
 		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
@@ -103,9 +102,10 @@ public class pageCreerEnfant extends JFrame {
 		btn_enfant.setName("creer");
 		btn_enfant.addActionListener(controle);
 		panel_1.add(btn_enfant);
-		
+
+		setBounds(650, 100, 700, 700);
 		setVisible(true);
-		
+		setResizable(false);
 	}
 
 	public String getNom(){

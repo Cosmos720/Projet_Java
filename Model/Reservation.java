@@ -56,4 +56,8 @@ public class Reservation {
         this.compte = compte;
     }
 
+    public String toString(){
+        return nom_associé + " " + date_reservation + " " + "€";
+    }
+
 }

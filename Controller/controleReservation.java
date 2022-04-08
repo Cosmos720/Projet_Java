@@ -2,22 +2,22 @@ package Controller;
 
 import Vue.*;
 import Model.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JButton;
-
-import Model.Reservation;
 
 import java.util.*;
 
 public class controleReservation implements ActionListener{
-	private pageReservation mainView;
+	private pageReservation page;
+	private pagePrincipale mainView;
 	private Compte compte;
+
 	
-	public controleReservation(pageReservation v, Compte c) {
-		mainView = v;
+	public controleReservation(pageReservation v, Compte c, pagePrincipale p) {
+		page = v;
 		compte = c;
+		mainView = p;
 	}
 	
 	@Override
@@ -25,20 +25,33 @@ public class controleReservation implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "popup") {
-			mainView.setText(new datePicker(mainView).setPickedDate());
+			page.setText(new datePicker(mainView).setPickedDate());
 		}
-		else if(pressed.getName() == "add" && mainView.getText().length() > 0) {
-			mainView.addDate(mainView.getText());
+		else if(pressed.getName() == "add" && page.getText().length() > 0) {
+			page.addDate(page.getText());
 		}
 		else if(pressed.getName() == "ajouter") {
 			// Ajouter les réservations
-			ArrayList<String> list_resa = mainView.getReservation();
-			for(String s : list_resa){
-				Reservation r = new Reservation(mainView.getName(), s, compte);
-				compte.addResa(r);
+			ArrayList<String> list_resa = page.getReservation();
+			double prix = compte.getuser().getQuotient().getTotal();
+			double total_prix = prix * list_resa.size();
+			double manquant = total_prix - compte.getSolde();
+			if(compte.getSolde() - total_prix >= 0){
+				for(String s : list_resa){
+					Reservation r = new Reservation(page.getName(), s, compte);
+					compte.addResa(r);
+				}
+				compte.debiter(total_prix);
+			}else {
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas assez de solde pour faire ces reservations: il vous manque "+manquant,"Solde insuffisant",JOptionPane.WARNING_MESSAGE);
 			}
-			mainView.showResa();
-			mainView.deleteDate();
+			page.showResa();
+			page.deleteDate();
+			mainView.validate();
+		}
+		else if(pressed.getName() == "retour"){
+			mainView.getContentPane().removeAll();
+			mainView.getContentPane().add(new pageMain(mainView, compte));
 			mainView.validate();
 		}
 	}

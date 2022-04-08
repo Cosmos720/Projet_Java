@@ -10,7 +10,7 @@ public class Compte {
     /**
      * Default constructor
      */
-    public Compte(String id, String mdp, int solde, Parent user, Vector<Reservation> resa) {
+    public Compte(String id, String mdp, double solde, Parent user, Vector<Reservation> resa) {
         this.id = id;
         this.mdp = mdp;
         this.solde = solde;
@@ -32,7 +32,7 @@ public class Compte {
     /**
      *
      */
-    private int solde;
+    private double solde;
 
     /**
      *
@@ -65,11 +65,11 @@ public class Compte {
     }
 
 
-    public int getSolde() {
+    public double getSolde() {
         return solde;
     }
 
-    public void addSolde(int s){
+    public void addSolde(double s){
         solde += s;
     }
 
@@ -97,4 +97,7 @@ public class Compte {
         return user.getEnfants();
     }
 
+    public void debiter(double prix){
+        solde -= prix;
+    }
 }

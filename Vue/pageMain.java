@@ -20,6 +20,8 @@ public class pageMain extends JPanel{
         private pagePrincipale mainView;
         private ControleMain controleMain;
 
+        private JPanel panel_enfant = new JPanel();
+	    private JList<Enfant> enfants;
         
         public pageMain(pagePrincipale v, Compte c) {
             
@@ -51,18 +53,17 @@ public class pageMain extends JPanel{
             /* 
                 AFFICHAGE DES ENFANTS SUR LA PAGE MAIN 
                                                             */
-            JPanel panel_enfants = new JPanel();
-            panel_enfants.setLayout(new GridLayout(0, 1, 0, 0));
-            panel_enfants.add(label_enfant);
-            Vector<Enfant> enfants = c.getEnfants();
-            if(enfants.size() > 0 ){
-                for(Enfant e : enfants){
-                    panel_enfants.add(new JLabel(e.toString()));
-                }
-            }else{
-                panel_enfants.add(new JLabel("Vous n'avez pas encore inscrit d'enfants"));
-            }
-            panel.add(panel_enfants);
+            
+            panel_enfant.setLayout(new GridLayout(2,1));
+            panel_enfant.add(label_enfant);
+            enfants = new JList<Enfant>(c.getEnfants());
+            JScrollPane scrollablePane = new JScrollPane();
+            scrollablePane.setViewportView(enfants);
+            scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+            scrollablePane.setPreferredSize(new Dimension(200, 200));
+            panel_enfant.add(scrollablePane);
+            
+            panel.add(panel_enfant);
 
 
             panel.add(solde);
