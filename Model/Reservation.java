@@ -8,10 +8,9 @@ public class Reservation {
      * Default constructor
      */
     
-    public Reservation(String nom_associé, String date_reservation, int prix, Compte compte) {
+    public Reservation(String nom_associé, String date_reservation, Compte compte) {
         this.nom_associé = nom_associé;
         this.date_reservation = date_reservation;
-        this.prix = prix;
         this.compte = compte;
     }
 
@@ -26,10 +25,6 @@ public class Reservation {
      */
     private String date_reservation;
 
-    /**
-     * 
-     */
-    private int prix;
 
     /**
      * 
@@ -51,14 +46,6 @@ public class Reservation {
 
     public void setDate_reservation(String date_reservation) {
         this.date_reservation = date_reservation;
-    }
-
-    public int getPrix() {
-        return prix;
-    }
-
-    public void setPrix(int prix) {
-        this.prix = prix;
     }
 
     public Compte getCompte() {

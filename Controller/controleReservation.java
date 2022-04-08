@@ -34,7 +34,7 @@ public class controleReservation implements ActionListener{
 			// Ajouter les réservations
 			ArrayList<String> list_resa = mainView.getReservation();
 			for(String s : list_resa){
-				Reservation r = new Reservation(mainView.getName(), s, 3, compte);
+				Reservation r = new Reservation(mainView.getName(), s, compte);
 				compte.addResa(r);
 			}
 			mainView.showResa();
