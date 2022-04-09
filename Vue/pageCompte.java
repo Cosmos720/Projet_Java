@@ -16,10 +16,10 @@ public class pageCompte extends JPanel{
     private controleCompte controle;
     private pagePrincipale mainView;
 
-    public pageCompte(pagePrincipale v, Compte c){
+    public pageCompte(pagePrincipale v, Compte c, Cantine cantine){
         mainView = v;
         mainView.setTitle("Gestion du compte");
-        controle = new controleCompte(mainView,c);
+        controle = new controleCompte(mainView,c, cantine);
         setBorder(new EmptyBorder(50, 80, 50, 80));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

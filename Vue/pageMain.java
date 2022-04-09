@@ -23,11 +23,11 @@ public class pageMain extends JPanel{
         private JPanel panel_enfant = new JPanel();
 	    private JList<Enfant> enfants;
         
-        public pageMain(pagePrincipale v, Compte c) {
+        public pageMain(pagePrincipale v, Compte c, Cantine cantine) {
             
 		    mainView = v;
             mainView.setTitle("Accueil");
-		    controleMain = new ControleMain(mainView, c);
+		    controleMain = new ControleMain(mainView, c, cantine);
 
             solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");
             

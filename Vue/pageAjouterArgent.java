@@ -14,7 +14,7 @@ public class pageAjouterArgent extends JFrame {
 
     private controleAjtArgent controle;
 
-	public pageAjouterArgent(Compte c) {
+	public pageAjouterArgent(Compte c, Cantine cantine) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
         */

@@ -9,10 +9,12 @@ import javax.swing.*;
 public class controleCompte implements ActionListener{
 	private pagePrincipale mainView;
 	private Compte compte;
+	private Cantine cantine;
 
-	public controleCompte(pagePrincipale v, Compte c) {
+	public controleCompte(pagePrincipale v, Compte c, Cantine cantine) {
 		mainView = v;
 		compte = c;
+		this.cantine = cantine;
 	}
 	
 	@Override
@@ -20,12 +22,12 @@ public class controleCompte implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "argent") {
-			new pageAjouterArgent(compte);
+			new pageAjouterArgent(compte, cantine);
 		} else if(pressed.getName() == "enfant"){
-            new pageCreerEnfant(compte);
+            new pageCreerEnfant(compte, cantine);
         }else if(pressed.getName() == "back"){
             mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView, compte));
+			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();
         }
     }

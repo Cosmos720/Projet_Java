@@ -1,5 +1,6 @@
 package Vue;
 
+import Model.*;
 import Controller.*;
 import javax.swing.*;
 
@@ -15,9 +16,9 @@ public class accueilStart extends JPanel {
 	private acceuilStartCtl ctl;
 	private pagePrincipale mainView;
 	
-	public accueilStart(pagePrincipale v) {
+	public accueilStart(pagePrincipale v, Cantine cantine) {
 		mainView = v;
-		ctl = new acceuilStartCtl(mainView);
+		ctl = new acceuilStartCtl(mainView, cantine);
 		
 		setBorder(new EmptyBorder(0, 100, 50, 100));
 		setLayout(new GridLayout(2, 1, 0, 0));

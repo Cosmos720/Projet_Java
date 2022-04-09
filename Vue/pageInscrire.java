@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.EmptyBorder;
 import Controller.*;
+import Model.*;
 
 public class pageInscrire extends JPanel {
 	private JTextField textField  = new JTextField();
@@ -19,11 +20,11 @@ public class pageInscrire extends JPanel {
 	private pagePrincipale mainView;
 	private inscrireCtl ctl;
 	
-	public pageInscrire(pagePrincipale v) {
+	public pageInscrire(pagePrincipale v, Cantine cantine) {
 		super();
 		mainView = v;
 		mainView.setTitle("Inscription");
-		ctl = new inscrireCtl(mainView, this);
+		ctl = new inscrireCtl(mainView, this, cantine);
 		
 		setBorder(new EmptyBorder(50, 80, 50, 80));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

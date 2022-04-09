@@ -12,12 +12,14 @@ public class controleReservation implements ActionListener{
 	private pageReservation page;
 	private pagePrincipale mainView;
 	private Compte compte;
+	private Cantine cantine;
 
 	
-	public controleReservation(pageReservation v, Compte c, pagePrincipale p) {
+	public controleReservation(pageReservation v, Compte c, pagePrincipale p, Cantine cantine) {
 		page = v;
 		compte = c;
 		mainView = p;
+		this.cantine = cantine;
 	}
 	
 	@Override
@@ -51,7 +53,7 @@ public class controleReservation implements ActionListener{
 		}
 		else if(pressed.getName() == "retour"){
 			mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView, compte));
+			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();
 		}
 	}

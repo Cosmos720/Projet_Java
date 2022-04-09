@@ -1,8 +1,10 @@
 import Vue.*;
+import Model.*;
 
 public class Main {
 	public static void main(String[] args) {
-		pagePrincipale vue = new pagePrincipale();
+		Cantine cantine = new Cantine("Crous", 200);
+		pagePrincipale vue = new pagePrincipale(cantine);
 	}
 
 }

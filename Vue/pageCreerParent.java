@@ -22,7 +22,7 @@ public class pageCreerParent extends JPanel {
 	
 
 	
-	public pageCreerParent(pagePrincipale v, Compte c) {
+	public pageCreerParent(pagePrincipale v, Compte c, Cantine cantine ) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
         */
@@ -49,7 +49,7 @@ public class pageCreerParent extends JPanel {
 
 		mainView = v;
 		mainView.setTitle("Information du parent");
-        controle = new controleCreerParent(mainView, c, this);
+        controle = new controleCreerParent(mainView, c, this, cantine);
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		

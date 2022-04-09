@@ -12,11 +12,13 @@ public class controleCreerParent implements ActionListener{
 	private pagePrincipale mainView;
 	private pageCreerParent pageP;
 	private Compte compte;
+	private Cantine cantine;
 	
-	public controleCreerParent(pagePrincipale v, Compte c, pageCreerParent p) {
+	public controleCreerParent(pagePrincipale v, Compte c, pageCreerParent p, Cantine cantine) {
 		mainView = v;
 		compte = c;
 		pageP = p;
+		this.cantine = cantine;
 	}
 	
 	@Override
@@ -27,7 +29,7 @@ public class controleCreerParent implements ActionListener{
 			Parent p = new Parent(pageP.getNom(),pageP.getPrenom(),pageP.getAge(),pageP.getSexe(),compte, new Vector<Enfant>(),/*Integer.parseInt(pageP.getSalaire()*/1600);
 			compte.setParent(p);
             mainView.getContentPane().removeAll();
-			mainView.getContentPane().add(new pageMain(mainView, compte));
+			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();
 		}
 	}

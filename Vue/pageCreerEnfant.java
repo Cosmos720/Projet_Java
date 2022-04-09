@@ -21,7 +21,7 @@ public class pageCreerEnfant extends JFrame {
 
 	private controleCreerEnfant controle;
 	
-	public pageCreerEnfant(Compte c) {
+	public pageCreerEnfant(Compte c, Cantine cantine) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
         */
@@ -46,7 +46,7 @@ public class pageCreerEnfant extends JFrame {
             }
         };
 
-		controle = new controleCreerEnfant(this,c);
+		controle = new controleCreerEnfant(this,c, cantine);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Information de l'enfant");

@@ -41,10 +41,10 @@ public class pageReservation extends JPanel {
 
 	
 
-	public pageReservation(pagePrincipale v, Compte c) {
+	public pageReservation(pagePrincipale v, Compte c, Cantine cantine) {
 		compte = c;
 		mainView = v;
-		controle = new controleReservation(this, c, mainView);
+		controle = new controleReservation(this, c, mainView, cantine);
 	
 		mainView.setTitle("Réservations");
 		

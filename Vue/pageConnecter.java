@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.EmptyBorder;
 import Controller.*;
+import Model.*;
 
 
 
@@ -17,10 +18,10 @@ public class pageConnecter extends JPanel {
 	private pagePrincipale mainView;
 	private connecterCtl ctl;
 	
-	public pageConnecter(pagePrincipale v) {
+	public pageConnecter(pagePrincipale v, Cantine cantine) {
 		mainView = v;
 		mainView.setTitle("Connexion");
-		ctl = new connecterCtl(mainView);
+		ctl = new connecterCtl(mainView, cantine);
 		
 		setBorder(new EmptyBorder(50, 50, 100, 50));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
