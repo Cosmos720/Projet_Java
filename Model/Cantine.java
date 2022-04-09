@@ -57,7 +57,14 @@ public class Cantine {
         this.capacité = capacité;
     }
 
-
+    public Compte getCompte(String id){
+        for(Compte c : comptes){
+            if(c.getId().equals(id)){
+                return c;
+            }
+        }
+        return null;
+    }
 
     public Vector<Compte> getComptes() {
         return comptes;

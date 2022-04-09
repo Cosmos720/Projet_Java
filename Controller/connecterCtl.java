@@ -31,9 +31,17 @@ public class connecterCtl implements ActionListener{
 			}else if(mdp.length == 0){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de mot de passe.","Mot de passe manquant",JOptionPane.WARNING_MESSAGE);
 			}else{
-				mainView.getContentPane().removeAll();
-				mainView.getContentPane().add(new pageMain(mainView, null, cantine));
-				mainView.validate();
+				Compte compte = cantine.getCompte(user);
+				if(compte == null){
+					JOptionPane.showMessageDialog(mainView, "Le nom d'utilisateur n'existe pas.","Nom  d'utilisateur incorrect",JOptionPane.WARNING_MESSAGE);
+				}else if(String.valueOf(mdp).equals(compte.getMdp())){
+					mainView.getContentPane().removeAll();
+					mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
+					mainView.validate();
+				}else{
+					JOptionPane.showMessageDialog(mainView, "Le mot de passe est incorrect.","Mot de passe incorrect",JOptionPane.WARNING_MESSAGE);
+				}
+				
 			}
 		}else if(pressed.getName() == "retour") {
 			mainView.getContentPane().removeAll();
