@@ -30,33 +30,43 @@ public class pageAjouterArgent extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Créditer");
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
 		
+		
+		GridBagLayout gbl = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
+		GridBagConstraints gbc = new GridBagConstraints();//pour définir des contraintes 
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.insets = new Insets(5,5,5,5);
+
+		//definition des colonnes et lignes
+		gbl.columnWidths = new int[]{100,100,100};
+		gbl.rowHeights = new int[]{75,50,100};
 		JPanel panel = new JPanel();
-		panel.setBorder(new EmptyBorder(20, 75, 75, 75));
-		getContentPane().add(panel);
-		panel.setLayout(new GridLayout(2, 1, 0, 50));
-		
-		JPanel panel_1 = new JPanel();
-		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+		panel.setLayout(gbl);
 		
         // Ajouter label valeur
 		JLabel lblValeurenEuro = new JLabel("Valeur (en euro)");
 		lblValeurenEuro.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		panel_1.add(lblValeurenEuro);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		panel.add(lblValeurenEuro, gbc);
 		
 		// Ajouter textfield
 		textField.addKeyListener(Digit);
-		panel_1.add(textField);
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		panel.add(textField, gbc);
 		
 		// Ajouter le bouton "Ajouter"
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
         btn_ajouter.addActionListener(controle);
-		panel.add(btn_ajouter);
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.gridx = 1;
+		gbc.gridy = 2;
+		panel.add(btn_ajouter, gbc);
 
-		setBounds(650, 100, 700, 700);
+		getContentPane().add(panel);
+		setBounds(650, 100, 400,400);
 		setVisible(true);
 		setResizable(false);
 	}
