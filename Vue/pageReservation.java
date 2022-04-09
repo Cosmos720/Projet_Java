@@ -15,10 +15,11 @@ public class pageReservation extends JPanel {
 
 	private JTabbedPane onglets=new JTabbedPane(SwingConstants.TOP);
 	private JPanel pan = new JPanel();
-	private JButton b1 = new JButton("Retour");
+	
 	/* 
 		ONGLET 1
 							*/
+	private JPanel onglet_1 = new JPanel();
 	private JTextField textField = new JTextField();
 	private JButton btn_popup = new JButton("...");
 	private JPanel panel_date = new JPanel();
@@ -27,17 +28,16 @@ public class pageReservation extends JPanel {
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
 	private JComboBox<Enfant> enfant;
+	private JButton b1 = new JButton("Retour");
 
-	
 
 	/*
 			ONGLET 2
 								*/
-
-	private JPanel panel_resa = new JPanel();
+	private JPanel onglet_2 = new JPanel();
 	private DefaultListModel<Reservation> model_resa;
 	private JList<Reservation> resa;
-
+	private JButton b2 = new JButton("Retour");
 
 	
 
@@ -47,15 +47,26 @@ public class pageReservation extends JPanel {
 		controle = new controleReservation(this, c, mainView, cantine);
 	
 		mainView.setTitle("Réservations");
-		
-		
 
+		onglet_1.setPreferredSize(new Dimension(675, 650));
+		onglet_2.setPreferredSize(new Dimension(675, 650));
+
+		b1.setName("retour");
+		b1.addActionListener(controle);
+		b2.setName("retour");
+		b2.addActionListener(controle);
 		/* Onglet 1 */
-		JPanel onglet_1 = new JPanel();
+		GridBagLayout gbl_1 = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
+		GridBagConstraints gbc_1 = new GridBagConstraints();//pour définir des contraintes 
+		gbc_1.fill = GridBagConstraints.BOTH;
+		gbc_1.insets = new Insets(5,5,5,5);
+
+		//definition des colonnes et lignes
+		gbl_1.columnWidths = new int[]{650};
+		gbl_1.rowHeights = new int[]{100,290,75,75};
+		onglet_1.setLayout(gbl_1);
+
 		JPanel panel_1 = new JPanel();
-		onglet_1.setLayout(new BoxLayout(onglet_1, BoxLayout.Y_AXIS));
-		onglet_1.setBorder(new EmptyBorder(20, 50, 20, 50));
-		
 		enfant = new JComboBox<Enfant>(compte.getEnfants());
 		panel_1.add(enfant);
 		
@@ -73,48 +84,65 @@ public class pageReservation extends JPanel {
 		btn_add.addActionListener(controle);
 		panel_1.add(btn_add);
 		
-		onglet_1.add(panel_1);
-		onglet_1.add(panel_date);
-		panel_date.setLayout(new BoxLayout(panel_date, BoxLayout.Y_AXIS));
+		gbc_1.gridx = 0;
+		gbc_1.gridy = 0;
+		onglet_1.add(panel_1, gbc_1);
+		
 		JScrollPane scrollablePane=new JScrollPane();
 		scrollablePane.setViewportView(dates);
         scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollablePane.setPreferredSize(new Dimension(675, 290));
-        panel_date.add(scrollablePane);
-	
+		gbc_1.gridx = 0;
+		gbc_1.gridy = 1;
+		onglet_1.add(scrollablePane, gbc_1);
+
+		
+
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
 		btn_ajouter.addActionListener(controle);
-		onglet_1.add(btn_ajouter);
-		
+		gbc_1.fill = GridBagConstraints.NONE;
+		gbc_1.gridx = 0;
+		gbc_1.gridy = 2;
+		onglet_1.add(btn_ajouter, gbc_1);
+
+		gbc_1.gridx = 0;
+		gbc_1.gridy = 3;
+		onglet_1.add(b1, gbc_1);
 
 		/* Onglet 2 */
-		JPanel onglet_2 = new JPanel();
+		GridBagLayout gbl_2 = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
+		GridBagConstraints gbc_2 = new GridBagConstraints();//pour définir des contraintes 
+		gbc_2.fill = GridBagConstraints.BOTH;
+		gbc_2.insets = new Insets(5,5,5,5);
+
+		//definition des colonnes et lignes
+		gbl_2.columnWidths = new int[]{650};
+		gbl_2.rowHeights = new int[]{450,100};
+		onglet_2.setLayout(gbl_2);
+		
+		// Ajout du scrollPane pour afficher les réservations
+		gbc_2.gridx = 0;
+		gbc_2.gridy = 0;
 		JScrollPane scrollablePane2=new JScrollPane();
 		resa = new JList<Reservation>(compte.getResa());
 		scrollablePane2.setViewportView(resa);
         scrollablePane2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollablePane2.setPreferredSize(new Dimension(675, 590));
-        panel_resa.add(scrollablePane2);
+        scrollablePane2.setPreferredSize(new Dimension(650, 450));
+        onglet_2.add(scrollablePane2, gbc_2);
 
-        onglet_2.add(panel_resa);
-        
-        
-
-		onglet_1.setPreferredSize(new Dimension(675, 500));
-		onglet_2.setPreferredSize(new Dimension(675, 625));
-
+		// Ajout du bouton retour 
+		gbc_2.fill = GridBagConstraints.NONE;
+		gbc_2.gridx = 0;
+		gbc_2.gridy = 1;
+		onglet_2.add(b2, gbc_2);
 		
 		pan.add(onglets);
-		b1.setName("retour");
-		b1.addActionListener(controle);
-		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
+		
 		add(pan);
-		add(b1);
 		onglets.addTab("Ajouter une reservation", onglet_1);
         onglets.addTab("Voir mes réservations", onglet_2);
-		setBounds(650, 100, 700, 700);
-		setVisible(true);
 	}
 	
 	public void showResa(){
