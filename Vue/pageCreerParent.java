@@ -14,11 +14,12 @@ public class pageCreerParent extends JPanel {
 	private JTextField textField_prenom = new JTextField();
 	private pagePrincipale mainView;
 	private JTextField textField_age = new JTextField();
+	private JTextField textField_salaire = new JTextField();
 	private JButton btn_parent = new JButton("Continuer");
 	private controleCreerParent controle;
 	
 	private JComboBox<String> ls; 
-	private JComboBox<String> lSalaire; 
+	
 	
 
 	
@@ -103,13 +104,11 @@ public class pageCreerParent extends JPanel {
 		panel_2.add(textField_age);
 		
         // Ajout Salaire
-		JLabel label_salaire = new JLabel("SalaireBrut");
-		String[] listSalaire = new String[] {"0€ - 1600€","1601€ - 3000€","3000€ et plus"};
-		lSalaire = new JComboBox<String>(listSalaire);
-
+		JLabel label_salaire = new JLabel("Salaire en brut");
 		label_salaire.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		panel_2.add(label_salaire);
-		panel_2.add(lSalaire);
+		textField_salaire.addKeyListener(Digit);
+		panel_2.add(textField_salaire);
 
 		panel_2.add(new JPanel());
 		panel_2.add(new JPanel());
@@ -135,10 +134,16 @@ public class pageCreerParent extends JPanel {
     }
 
     public int getAge(){
+        if(textField_age.getText().equals("")){
+			return -1;
+		}
         return Integer.parseInt(textField_age.getText());
     }
 
-    public String getSalaire(){
-        return ((String)lSalaire.getSelectedItem());
+    public int getSalaire(){
+		if(textField_salaire.getText().equals("")){
+			return -1;
+		}
+        return Integer.parseInt(textField_salaire.getText());
     }
 }

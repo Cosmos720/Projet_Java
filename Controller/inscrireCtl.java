@@ -2,12 +2,9 @@ package Controller;
 
 import Vue.*;
 import Model.*;
+import java.awt.event.*;
+import javax.swing.*;
 import java.util.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
 
 public class inscrireCtl implements ActionListener{
 
@@ -34,12 +31,20 @@ public class inscrireCtl implements ActionListener{
 		JButton pressed=((JButton)e.getSource());
 		
 		if(pressed.getName() == "inscrire") {
-			if(Arrays.equals(mdp,mdpconfirm)){
+			if(user.length() == 0){
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de nom d'utilisateur.","Nom d'utilisateur manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(mdp.length == 0){
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de mot de passe.","Mot de passe manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(mdpconfirm.length == 0){
+					JOptionPane.showMessageDialog(mainView, "Vous n'avez pas confirmer le mot de passe.","Mot de passe manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(Arrays.equals(mdp,mdpconfirm)){
 				Compte compte = new Compte(user,String.valueOf(mdp),0,null,new Vector<Reservation>());
 				cantine.addComptes(compte);
 				mainView.getContentPane().removeAll();
 				mainView.getContentPane().add(new pageCreerParent(mainView, compte, cantine));
 				mainView.validate();
+			}else{
+				JOptionPane.showMessageDialog(mainView, "Les 2 mots de passe rentrés ne sont pas identique.","Mot de passe incorrect",JOptionPane.WARNING_MESSAGE);
 			}
 		} else if(pressed.getName() == "retour"){
 			mainView.getContentPane().removeAll();

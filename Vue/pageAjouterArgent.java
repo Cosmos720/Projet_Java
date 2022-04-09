@@ -62,10 +62,10 @@ public class pageAjouterArgent extends JFrame {
 	}
 
     public double getValeur(){
-		if(textField.getText().length() > 0){
-        	return (double)Integer.parseInt(textField.getText());
+		if(textField.getText().equals("")){
+        	return -1;
 		}
-		return 0;
+		return (double)Integer.parseInt(textField.getText());
     }
 
 }

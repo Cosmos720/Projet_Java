@@ -21,7 +21,7 @@ public class pageConnecter extends JPanel {
 	public pageConnecter(pagePrincipale v, Cantine cantine) {
 		mainView = v;
 		mainView.setTitle("Connexion");
-		ctl = new connecterCtl(mainView, cantine);
+		ctl = new connecterCtl(mainView,this, cantine);
 		
 		setBorder(new EmptyBorder(50, 50, 100, 50));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -76,7 +76,6 @@ public class pageConnecter extends JPanel {
 		return textField.getText();
 	}
 
-	
 
 	public char[] getPassword() {
 		return passwordField.getPassword();

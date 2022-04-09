@@ -17,7 +17,6 @@ public class ControleMain implements ActionListener {
     }
 
     public double getSolde(){
-        System.out.println("b");
        return compte.getSolde();
     }
 

@@ -2,10 +2,9 @@ package Controller;
 
 import Vue.*;
 import Model.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
 
 public class controleAjtArgent implements ActionListener{
 	private pageAjouterArgent mainView;
@@ -20,10 +19,14 @@ public class controleAjtArgent implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		JButton pressed=((JButton)e.getSource());
 		
+		double somme = mainView.getValeur();
 		if(pressed.getName() == "ajouter") {
-			System.out.println("a");
-			compte.addSolde(mainView.getValeur());
-			mainView.dispose();
+			if(somme == -1){
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de somme.","Somme manquante",JOptionPane.WARNING_MESSAGE);
+			}else{
+				compte.addSolde(somme);
+				mainView.dispose();
+			}
 		}
 	}
 

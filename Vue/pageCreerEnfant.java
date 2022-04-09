@@ -121,6 +121,9 @@ public class pageCreerEnfant extends JFrame {
     }
 
     public int getAge(){
+        if(textField_age.getText().equals("")){
+			return -1;
+		}
         return Integer.parseInt(textField_age.getText());
     }
 

@@ -60,7 +60,7 @@ public class Reservation {
     }
 
     public String toString(){
-        return nom_associé + " " + date_reservation + " " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) +"€";
+        return "Enfant : "+nom_associé + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) +"€";
     }
 
 }
