@@ -24,7 +24,8 @@ public class controleCreerEnfant implements ActionListener{
 		
 		if(pressed.getName() == "creer") {
 			// Creation d'un nouveau Enfant
-			Enfant enfant = new Enfant(mainView.getNom(), mainView.getPrenom(),mainView.getAge(),mainView.getSexe(),mainView.getRegime(),compte, cantine);
+			Enfant enfant = new Enfant(mainView.getNom(), mainView.getPrenom(),mainView.getAge(),mainView.getSexe(),mainView.getRegime(),compte);
+			cantine.addEnfants(enfant);
 			compte.getuser().addEnfant(enfant);
 			compte.getuser().newQuotient();
             mainView.dispose();

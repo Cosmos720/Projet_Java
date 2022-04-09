@@ -9,11 +9,10 @@ public class Enfant extends Personne {
      * Default constructor
      */    
     public Enfant(String nom, String prenom, int age, String sexe, String regime,
-            Compte compte, Cantine cantine) {
+            Compte compte) {
         super(nom, prenom, age, sexe);
         this.regime = regime;
         this.compte = compte;
-        this.cantine = cantine;
     }
 
     /**
@@ -30,11 +29,6 @@ public class Enfant extends Personne {
      * 
      */
     private Compte compte;
-
-    /**
-     * 
-     */
-    private Cantine cantine;
 
     
     public String getRegime() {
@@ -68,15 +62,5 @@ public class Enfant extends Personne {
     public void setAllergies(String allergies) {
         this.regime = allergies;
     }
-
-    public Cantine getCantine() {
-        return cantine;
-    }
-
-    public void setCantine(Cantine cantine) {
-        this.cantine = cantine;
-    }
-
-    
 
 }

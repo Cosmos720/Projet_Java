@@ -36,6 +36,7 @@ public class inscrireCtl implements ActionListener{
 		if(pressed.getName() == "inscrire") {
 			if(Arrays.equals(mdp,mdpconfirm)){
 				Compte compte = new Compte(user,String.valueOf(mdp),0,null,new Vector<Reservation>());
+				cantine.addComptes(compte);
 				mainView.getContentPane().removeAll();
 				mainView.getContentPane().add(new pageCreerParent(mainView, compte, cantine));
 				mainView.validate();

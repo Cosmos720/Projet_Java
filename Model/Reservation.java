@@ -1,4 +1,7 @@
 package Model;
+
+import java.text.DecimalFormat;
+
 /**
  * Classe Reservation
  */
@@ -57,7 +60,7 @@ public class Reservation {
     }
 
     public String toString(){
-        return nom_associé + " " + date_reservation + " " + "€";
+        return nom_associé + " " + date_reservation + " " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) +"€";
     }
 
 }

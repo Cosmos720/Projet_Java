@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.*;
 import javax.swing.border.EmptyBorder;
 
@@ -29,7 +30,7 @@ public class pageMain extends JPanel{
             mainView.setTitle("Accueil");
 		    controleMain = new ControleMain(mainView, c, cantine);
 
-            solde = new JLabel("Solde : " + this.controleMain.getSolde()+"€");
+            solde = new JLabel("Solde : " +  new DecimalFormat(".##").format(this.controleMain.getSolde())+"€");
             
             setBorder(new EmptyBorder(50, 80, 50, 80));
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
