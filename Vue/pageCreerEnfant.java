@@ -50,59 +50,85 @@ public class pageCreerEnfant extends JFrame {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Information de l'enfant");
-		getContentPane().setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
-		
+		GridBagLayout gbl = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
+		GridBagConstraints gbc = new GridBagConstraints();//pour définir des contraintes 
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.insets = new Insets(5,5,5,5);
+
+		//definition des colonnes et lignes
+		gbl.columnWidths = new int[]{200,200,200};
+		gbl.rowHeights = new int[]{75,75,75,75,75,100,75};
 		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new EmptyBorder(20, 50, 20, 50));
-		getContentPane().add(panel_1);
-		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.Y_AXIS));
+		panel_1.setLayout(gbl);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(new EmptyBorder(0, 0, 20, 0));
-		panel_1.add(panel_2);
-		panel_2.setLayout(new GridLayout(5, 2, 20, 10));
+		
 		
         // Ajout Nom
 		JLabel label_nom = new JLabel("Nom");
 		label_nom.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_nom.addKeyListener(Letter);
-		panel_2.add(label_nom);
-		panel_2.add(textField_nom);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		panel_1.add(label_nom, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		panel_1.add(textField_nom, gbc);
 		
         // Ajout Prenom
 		JLabel label_prenom = new JLabel("Prenom");
 		label_prenom.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_prenom.addKeyListener(Letter);
-		panel_2.add(label_prenom);
-		panel_2.add(textField_prenom);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		panel_1.add(label_prenom, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		panel_1.add(textField_prenom, gbc);
 		
         // Ajout Sexe
 		JLabel label_sexe = new JLabel("Sexe");
 		label_sexe.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		sexe = new JComboBox<String>(new String[]{"Garcon", "Fille"});
-		panel_2.add(label_sexe);
-		panel_2.add(sexe);
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		panel_1.add(label_sexe, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		panel_1.add(sexe, gbc);
 		
         // Ajout Age
 		JLabel label_age = new JLabel("Age");
 		label_age.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_age.addKeyListener(Digit);
-		panel_2.add(label_age);
-		panel_2.add(textField_age);
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		panel_1.add(label_age, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 3;
+		panel_1.add(textField_age, gbc);
 		
 		
 		// Ajout Regime
 		JLabel label_regime = new JLabel("Regime alimentaire");
 		label_regime.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		regime = new JComboBox<String>(new String[]{"Aucun","Vegan", "Vegetarien", "Sans porc"});
-		panel_2.add(label_regime);
-		panel_2.add(regime);
+		gbc.gridx = 0;
+		gbc.gridy = 4;
+		panel_1.add(label_regime, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 4;
+		panel_1.add(regime, gbc);
 		
 		btn_enfant.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_enfant.setName("creer");
 		btn_enfant.addActionListener(controle);
-		panel_1.add(btn_enfant);
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.gridx = 1;
+		gbc.gridy = 6;
+		panel_1.add(btn_enfant, gbc);
 
+
+		getContentPane().add(panel_1);
 		setBounds(650, 100, 700, 700);
 		setVisible(true);
 		setResizable(false);
