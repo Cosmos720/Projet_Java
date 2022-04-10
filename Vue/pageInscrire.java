@@ -21,66 +21,75 @@ public class pageInscrire extends JPanel {
 	private inscrireCtl ctl;
 	
 	public pageInscrire(pagePrincipale v, Cantine cantine) {
-		super();
 		mainView = v;
 		mainView.setTitle("Inscription");
 		ctl = new inscrireCtl(mainView, this, cantine);
 		
-		setBorder(new EmptyBorder(50, 80, 50, 80));
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 		
-		
+
+		GridBagLayout gbl = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
+		GridBagConstraints gbc = new GridBagConstraints();//pour définir des contraintes 
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.insets = new Insets(5,5,5,5);
+
+		//definition des colonnes et lignes
+		gbl.columnWidths = new int[]{200,200,200};
+		gbl.rowHeights = new int[]{75,75,75,75,50,75,75};
+
+		Component verticalStrut = Box.createVerticalStrut(50);
+        add(verticalStrut);
 		label_top.setAlignmentX(Component.CENTER_ALIGNMENT);
 		label_top.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		add(label_top);
 		
-		Component verticalStrut = Box.createVerticalStrut(50);
-		add(verticalStrut);
+		
 		
 		JPanel panel = new JPanel();
-		add(panel);
-		panel.setLayout(new GridLayout(5, 2, 0, 40));
-		panel.add(new JPanel());
-		panel.add(new JPanel());
+		panel.setLayout(gbl);
 		
-		panel.add(label_id);
+		// Ajout identifiant
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		panel.add(label_id, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		panel.add(textField, gbc);
+		
+		// Ajout mdp
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		panel.add(label_mdp, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 2;
+		panel.add(passwordField, gbc);
+		
+		// Ajout confirme mdp
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		panel.add(label_mdp_conf, gbc);
+		gbc.gridx = 2;
+		gbc.gridy = 3;
+		panel.add(passwordFieldConfirm, gbc);
 		
 		
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		
-		panel.add(label_mdp);
-		
-		
-		panel.add(passwordField);
-		
-		
-		panel.add(label_mdp_conf);
-		
-		
-		panel.add(passwordFieldConfirm);
-		panel.add(new JPanel());
-		panel.add(new JPanel());
-		Component verticalStrut_1 = Box.createVerticalStrut(50);
-		add(verticalStrut_1);
-		
-		
-		b1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// Ajout bouton inscrire
 		b1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b1.setName("inscrire");
 		b1.addActionListener(ctl);
-		add(b1);
+		gbc.gridx = 1;
+		gbc.gridy = 5;
+		panel.add(b1, gbc);
 
-		Component verticalStrut_2 = Box.createVerticalStrut(50);
-		add(verticalStrut_2);
-		
-		b2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		// Ajout bouton retour
 		b2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b2.setName("retour");
 		b2.addActionListener(ctl);
-		add(b2);
+		gbc.gridx = 1;
+		gbc.gridy = 6;
+		panel.add(b2, gbc);
 
+		add(panel);
 	}
 
 	public String getUserName() {
