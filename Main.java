@@ -9,7 +9,7 @@ public class Main {
 		
 		BDD Bdd = new BDD();
 		Cantine cantine = Bdd.createCantine();
-	new pagePrincipale(cantine);
+		new pagePrincipale(cantine);
 
 
 
