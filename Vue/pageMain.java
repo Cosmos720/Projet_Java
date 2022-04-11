@@ -60,7 +60,7 @@ public class pageMain extends JPanel{
             JScrollPane scrollablePane = new JScrollPane();
             scrollablePane.setViewportView(enfants);
             scrollablePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-            scrollablePane.setPreferredSize(new Dimension(200, 200));
+            scrollablePane.setPreferredSize(new Dimension(200, 400));
             panel_enfant.add(scrollablePane);
             
             panel.add(panel_enfant);

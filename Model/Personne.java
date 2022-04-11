@@ -39,17 +39,13 @@ public class Personne {
         return nom;
     }
 
-
     public String getPrenom() {
         return prenom;
     }
 
-
-
     public int getAge() {
         return age;
     }
-
 
     public String getSexe() {
         return sexe;

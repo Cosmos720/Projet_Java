@@ -10,12 +10,12 @@ public class Compte {
     /**
      * Default constructor
      */
-    public Compte(String id, String mdp, double solde, Parent user, Vector<Reservation> resa) {
+    public Compte(String id, String mdp, double solde, Parent user) {
         this.id = id;
         this.mdp = mdp;
         this.solde = solde;
         this.user = user;
-        this.resa = resa;
+        this.resa = new Vector<Reservation>();
     }
 
 
@@ -48,22 +48,9 @@ public class Compte {
         return id;
     }
 
-
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-
     public String getMdp() {
         return mdp;
     }
-
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-
 
     public double getSolde() {
         return solde;
@@ -83,10 +70,6 @@ public class Compte {
 
     public Vector<Reservation> getResa() {
         return resa;
-    }
-    
-    public void setResa(Vector<Reservation> resa) {
-        this.resa = resa;
     }
 
     public void addResa(Reservation r){

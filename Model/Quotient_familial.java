@@ -13,6 +13,7 @@ public class Quotient_familial {
     }
 
     private double total;
+    
     private double quotient;
 
     private double CalculQuotient(Parent p){

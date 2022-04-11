@@ -40,8 +40,7 @@ public class controleCreerParent implements ActionListener{
 			}else if(prenom==nom){
 				JOptionPane.showMessageDialog(mainView, "Veuillez rentré un nom et prenom valide.","Nom Prenom invalide",JOptionPane.WARNING_MESSAGE);
 			}else{
-				Parent p = new Parent(nom,prenom,age,pageP.getSexe(),compte, new Vector<Enfant>(),salaire);
-				compte.setParent(p);
+				new Parent(nom,prenom,age,pageP.getSexe(),compte, new Vector<Enfant>(),salaire);
 				mainView.getContentPane().removeAll();
 				mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 				mainView.validate();

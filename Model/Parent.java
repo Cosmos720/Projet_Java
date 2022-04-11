@@ -12,18 +12,11 @@ public class Parent extends Personne {
      */
     public Parent(String nom, String prenom, int age, String sexe, Compte compte, Vector<Enfant> enfants, int salaire) {
         super(nom, prenom, age, sexe);
-        this.compte = compte;
+        compte.setParent(this);
         this.enfants = enfants;
         this.salaire = salaire;
         this.quotient= new Quotient_familial(this);
     }
-
-
-
-    /**
-     * 
-     */
-    private Compte compte;
 
     /**
      * 
@@ -45,14 +38,6 @@ public class Parent extends Personne {
         return quotient;
     }
 
-    public Compte getCompte() {
-        return compte;
-    }
-
-    public void setCompte(Compte compte) {
-        this.compte = compte;
-    }
-
     public Vector<Enfant> getEnfants() {
         return enfants;
     }
@@ -68,6 +53,7 @@ public class Parent extends Personne {
 
     public void setSalaire(int salaire) {
         this.salaire = salaire;
+        newQuotient();
     }
 
     public void newQuotient(){

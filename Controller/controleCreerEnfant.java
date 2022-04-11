@@ -32,7 +32,7 @@ public class controleCreerEnfant implements ActionListener{
 			}else if(age == -1 || age>18 || age<4){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age.","Age manquant",JOptionPane.WARNING_MESSAGE);
 			}else{
-				Enfant enfant = new Enfant(nom,prenom,age,mainView.getSexe(),mainView.getRegime(),compte);
+				Enfant enfant = new Enfant(nom,prenom,age,mainView.getSexe(),mainView.getRegime());
 				cantine.addEnfants(enfant);
 				compte.getuser().addEnfant(enfant);
 				mainView.dispose();
