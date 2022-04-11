@@ -39,7 +39,6 @@ public class controleReservation implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas choisis de reservation.","Pas de reservation",JOptionPane.WARNING_MESSAGE);
 			}else{
 				// Ajouter les réservations
-				int options = JOptionPane.YES_NO_OPTION;
 				int resultat = JOptionPane.showConfirmDialog(mainView,"Voulez vous vraiment confirmer cette réservation?","Confirmation",JOptionPane.YES_NO_OPTION); 
 				if (resultat==JOptionPane.YES_NO_OPTION){	
 						double prix = compte.getuser().getQuotient().getTotal();
@@ -57,8 +56,6 @@ public class controleReservation implements ActionListener{
 					page.showResa();
 					page.deleteDate();
 					mainView.validate();
-					}else if(resultat==JOptionPane.NO_OPTION){
-						
 					}
 				}
 				
