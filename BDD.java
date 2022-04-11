@@ -39,7 +39,7 @@ public class BDD {
         Gauthier.addEnfant(Clara);
 
 
-        Cantine cantine = new Cantine("Crous", 200);
+        Cantine cantine = new Cantine("Cantine pour les Tipeu", 200);
 		cantine.addComptes(Arm);
         cantine.addComptes(Coco);
         cantine.addComptes(Awk);
