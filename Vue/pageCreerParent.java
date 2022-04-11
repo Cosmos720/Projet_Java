@@ -132,6 +132,8 @@ public class pageCreerParent extends JPanel {
 		// Ajout boutton
 		btn_parent.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btn_parent.setName("continuer");
+		btn_parent.setBackground(Color.WHITE);
+        btn_parent.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		btn_parent.setAlignmentX(Component.CENTER_ALIGNMENT);
         btn_parent.addActionListener(controle);
 		gbc.fill = GridBagConstraints.NONE;

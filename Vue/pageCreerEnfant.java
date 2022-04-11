@@ -121,6 +121,8 @@ public class pageCreerEnfant extends JFrame {
 		
 		btn_enfant.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_enfant.setName("creer");
+		btn_enfant.setBackground(Color.WHITE);
+        btn_enfant.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		btn_enfant.addActionListener(controle);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridx = 0;
@@ -130,6 +132,8 @@ public class pageCreerEnfant extends JFrame {
 		// Ajout bouton retour
 		btn_back.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_back.setName("retour");
+		btn_back.setBackground(Color.WHITE);
+        btn_back.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		btn_back.addActionListener(controle);
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridx = 2;
