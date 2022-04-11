@@ -6,7 +6,7 @@ import Model.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
-import javax.swing.border.EmptyBorder;
+
 
 public class pageReservation extends JPanel {
 	private controleReservation controle;

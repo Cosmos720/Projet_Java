@@ -2,7 +2,6 @@ package Vue;
 
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
 import Controller.*;
 import Model.*;
 
