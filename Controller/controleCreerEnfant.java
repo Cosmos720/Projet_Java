@@ -35,7 +35,6 @@ public class controleCreerEnfant implements ActionListener{
 				Enfant enfant = new Enfant(nom,prenom,age,mainView.getSexe(),mainView.getRegime(),compte);
 				cantine.addEnfants(enfant);
 				compte.getuser().addEnfant(enfant);
-				compte.getuser().newQuotient();
 				mainView.dispose();
 			}
 		} else if(pressed.getName() == "retour"){

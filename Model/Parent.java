@@ -59,6 +59,7 @@ public class Parent extends Personne {
 
     public void addEnfant(Enfant e){
         enfants.add(e);
+        newQuotient();
     }
 
     public int getSalaire() {

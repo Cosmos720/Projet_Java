@@ -4,7 +4,6 @@ import java.util.*;
 public class BDD {
 
     public BDD() {
-
     }
 
     public Cantine createCantine(){
