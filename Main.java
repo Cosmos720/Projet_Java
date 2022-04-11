@@ -1,12 +1,10 @@
 import Vue.*;
 
-import java.util.Vector;
 
 import Model.*;
 
 public class Main {
 	public static void main(String[] args) {
-
 
 		
 		BDD Bdd = new BDD();
