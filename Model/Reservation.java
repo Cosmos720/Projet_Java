@@ -11,10 +11,11 @@ public class Reservation {
      * Default constructor
      */
     
-    public Reservation(Enfant enfant, String date_reservation, Compte compte) {
+    public Reservation(Enfant enfant, String date_reservation, Compte compte, double prix) {
         this.enfant = enfant;
         this.date_reservation = date_reservation;
         this.compte = compte;
+        this.prix = prix;
     }
 
     /**
@@ -33,6 +34,11 @@ public class Reservation {
      * 
      */
     private Compte compte;
+
+    /**
+     * 
+     */
+    private double prix;
 
 
 
@@ -61,7 +67,7 @@ public class Reservation {
     }
 
     public String toString(){
-        return "Enfant : " + enfant + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) + "€" + (enfant.getAllergies()!="Aucun"?" Régime : " + enfant.getAllergies():"");
+        return "Enfant : " + enfant + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(prix) + "€" + (enfant.getAllergies()!="Aucun"?" Régime : " + enfant.getAllergies():"");
     }
 
 }
