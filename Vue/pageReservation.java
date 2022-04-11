@@ -185,7 +185,7 @@ public class pageReservation extends JPanel {
 		return date_list;
 	}
 
-	public String getName(){
-		return ((Enfant)enfant.getSelectedItem()).toString();
+	public Enfant getEnfant(){
+		return (Enfant)enfant.getSelectedItem();
 	}
 }

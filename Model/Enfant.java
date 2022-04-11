@@ -63,4 +63,7 @@ public class Enfant extends Personne {
         this.regime = allergies;
     }
 
+    public String toString(){
+        return getNom() +" "+ getPrenom();
+    }
 }
