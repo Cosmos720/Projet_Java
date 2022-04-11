@@ -12,19 +12,9 @@ public class Quotient_familial {
         total = CalculTotal(quotient);
     }
 
-    /**
-     * 
-     */
     private double total;
-
-    /**
-     * 
-     */
     private double quotient;
 
-    /**
-     * 
-     */
     private double CalculQuotient(Parent p){
         double a = ((double)1/12) * ((double)p.getSalaire());
         double q = a / ((double)(1+p.getEnfants().size()));
@@ -34,9 +24,6 @@ public class Quotient_familial {
         return q;
     }
 
-    /**
-     * 
-     */
     private double CalculTotal(double quotient){
         return 1+(quotient/25);
     }
