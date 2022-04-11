@@ -45,12 +45,14 @@ public class controleReservation implements ActionListener{
 				double manquant = total_prix - compte.getSolde();
 				if(compte.getSolde() - total_prix >= 0){
 					for(String s : list_resa){
-						Reservation r = new Reservation(page.getEnfant(), s, compte);
+						Reservation r = new Reservation(page.getEnfant(), s, compte, compte.getuser().getQuotient().getTotal());
 						compte.addResa(r);
 					}
 					compte.debiter(total_prix);
 				}else {
-					JOptionPane.showMessageDialog(mainView, "Vous n'avez pas assez de solde pour faire ces reservations: il vous manque "+new DecimalFormat(".##").format(manquant),"Solde insuffisant",JOptionPane.WARNING_MESSAGE);
+					JLabel message = new JLabel("<html><center>Vous n'avez pas assez de solde pour faire ces reservations:<br>il vous manque "+new DecimalFormat(".##").format(manquant)+"€");
+					message.setHorizontalAlignment(SwingConstants.CENTER);
+					JOptionPane.showMessageDialog(mainView, message,"Solde insuffisant",JOptionPane.WARNING_MESSAGE);
 				}
 				page.showResa();
 				page.deleteDate();
