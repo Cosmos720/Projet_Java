@@ -39,7 +39,6 @@ public class accueilStart extends JPanel {
 		
 		JPanel panel = new JPanel();
 		add(panel);
-		panel.setBackground(Color.white);
 		panel.setLayout(new GridLayout(2, 1, 0, 20));
 		
 		panel.add(b1);
