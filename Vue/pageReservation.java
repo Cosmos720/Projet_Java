@@ -24,7 +24,7 @@ public class pageReservation extends JPanel {
 	private JButton btn_popup = new JButton("...");
 	private JPanel panel_date = new JPanel();
 	private DefaultListModel<String> model = new DefaultListModel<>();
-	private JList<String> dates = new JList<>(model);
+	private JList<String> dates = new JList<String>(model);
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
 	private JComboBox<Enfant> enfant;
@@ -178,14 +178,14 @@ public class pageReservation extends JPanel {
 	
 	public ArrayList<String> getReservation() {
 		ArrayList<String> date_list = new ArrayList<String>();
-		ListModel m = dates.getModel();
+		ListModel<String> m = dates.getModel();
 		for(int i=0; i < m.getSize(); i++){
 			 date_list.add((String)m.getElementAt(i));  
 	    }
 		return date_list;
 	}
 
-	public String getName(){
-		return ((Enfant)enfant.getSelectedItem()).toString();
+	public Enfant getEnfant(){
+		return (Enfant)enfant.getSelectedItem();
 	}
 }

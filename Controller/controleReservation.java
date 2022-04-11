@@ -45,7 +45,7 @@ public class controleReservation implements ActionListener{
 				double manquant = total_prix - compte.getSolde();
 				if(compte.getSolde() - total_prix >= 0){
 					for(String s : list_resa){
-						Reservation r = new Reservation(page.getName(), s, compte);
+						Reservation r = new Reservation(page.getEnfant(), s, compte);
 						compte.addResa(r);
 					}
 					compte.debiter(total_prix);

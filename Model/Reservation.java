@@ -11,8 +11,8 @@ public class Reservation {
      * Default constructor
      */
     
-    public Reservation(String nom_associé, String date_reservation, Compte compte) {
-        this.nom_associé = nom_associé;
+    public Reservation(Enfant enfant, String date_reservation, Compte compte) {
+        this.enfant = enfant;
         this.date_reservation = date_reservation;
         this.compte = compte;
     }
@@ -20,7 +20,7 @@ public class Reservation {
     /**
      * 
      */
-    private String nom_associé;
+    private Enfant enfant;
 
 
     /**
@@ -35,12 +35,13 @@ public class Reservation {
     private Compte compte;
 
 
-    public String getNom_associé() {
-        return nom_associé;
+
+    public Enfant getEnfant() {
+        return enfant;
     }
 
-    public void setNom_associé(String nom_associé) {
-        this.nom_associé = nom_associé;
+    public void setEnfant(Enfant enfant) {
+        this.enfant = enfant;
     }
 
     public String getDate_reservation() {
@@ -60,7 +61,7 @@ public class Reservation {
     }
 
     public String toString(){
-        return "Enfant : "+nom_associé + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) +"€";
+        return "Enfant : " + enfant + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(compte.getuser().getQuotient().getTotal()) + "€" + (enfant.getAllergies()!="Aucun"?" Régime : " + enfant.getAllergies():"");
     }
 
 }
