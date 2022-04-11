@@ -18,6 +18,7 @@ public class pageCreerEnfant extends JFrame {
 	private JComboBox<String> regime;
 	
 	private JButton btn_enfant = new JButton("Inscrire mon Enfant");
+	private JButton btn_back = new JButton("Retour");
 
 	private controleCreerEnfant controle;
 	
@@ -123,9 +124,19 @@ public class pageCreerEnfant extends JFrame {
 		btn_enfant.setName("creer");
 		btn_enfant.addActionListener(controle);
 		gbc.fill = GridBagConstraints.NONE;
-		gbc.gridx = 1;
+		gbc.gridx = 0;
 		gbc.gridy = 6;
 		panel_1.add(btn_enfant, gbc);
+
+		// Ajout bouton retour
+		btn_back.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btn_back.setName("retour");
+		btn_back.addActionListener(controle);
+		gbc.fill = GridBagConstraints.NONE;
+		gbc.gridx = 2;
+		gbc.gridy = 6;
+		panel_1.add(btn_back, gbc);
+		
 
 
 		getContentPane().add(panel_1);
