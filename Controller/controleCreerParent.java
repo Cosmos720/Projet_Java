@@ -37,6 +37,8 @@ public class controleCreerParent implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age. \n Ou votre age n'est pas valide","Age invalide",JOptionPane.WARNING_MESSAGE);
 			}else if(prenom.length() == 0){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de prenom.","Prenom manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(prenom==nom){
+				JOptionPane.showMessageDialog(mainView, "Veuillez rentré un nom et prenom valide.","Nom Prenom invalide",JOptionPane.WARNING_MESSAGE);
 			}else{
 				Parent p = new Parent(nom,prenom,age,pageP.getSexe(),compte, new Vector<Enfant>(),salaire);
 				compte.setParent(p);
