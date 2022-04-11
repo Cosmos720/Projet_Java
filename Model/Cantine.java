@@ -92,5 +92,13 @@ public class Cantine {
         return this.enfants.add(e);
     }
 
+    public boolean idExist(String id){
+        for(Compte c : comptes){
+            if(c.getId().equals(id)){
+                return true;
+            }   
+        }
+        return false;
+    }
 
 }

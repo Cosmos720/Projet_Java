@@ -37,6 +37,8 @@ public class inscrireCtl implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de mot de passe.","Mot de passe manquant",JOptionPane.WARNING_MESSAGE);
 			}else if(mdpconfirm.length == 0){
 					JOptionPane.showMessageDialog(mainView, "Vous n'avez pas confirmer le mot de passe.","Mot de passe manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(cantine.idExist(user)){
+				JOptionPane.showMessageDialog(mainView, "Cet identifiant existe déjà","Identifiant existant",JOptionPane.WARNING_MESSAGE);
 			}else if(Arrays.equals(mdp,mdpconfirm)){
 				Compte compte = new Compte(user,String.valueOf(mdp),0,null,new Vector<Reservation>());
 				cantine.addComptes(compte);

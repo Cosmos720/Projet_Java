@@ -18,6 +18,8 @@ public class Parent extends Personne {
         this.quotient= new Quotient_familial(this);
     }
 
+
+
     /**
      * 
      */

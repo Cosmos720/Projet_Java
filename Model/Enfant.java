@@ -8,8 +8,7 @@ public class Enfant extends Personne {
     /**
      * Default constructor
      */    
-    public Enfant(String nom, String prenom, int age, String sexe, String regime,
-            Compte compte) {
+    public Enfant(String nom, String prenom, int age, String sexe, String regime,Compte compte) {
         super(nom, prenom, age, sexe);
         this.regime = regime;
         this.compte = compte;
