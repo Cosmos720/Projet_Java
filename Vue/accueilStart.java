@@ -11,7 +11,7 @@ import javax.swing.border.EmptyBorder;
 public class accueilStart extends JPanel {
 	private JButton b1 = new JButton("Se connecter");
 	private JButton b2 = new JButton("S'inscrire");
-	private JLabel label = new JLabel("Crous");
+	private JLabel label;
 	
 	private acceuilStartCtl ctl;
 	private pagePrincipale mainView;
@@ -32,6 +32,7 @@ public class accueilStart extends JPanel {
         b2.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b2.addActionListener(ctl);
 		
+		label=new JLabel(cantine.getNom_cantine());
 		label.setFont(new Font("Serif", Font.BOLD, 48));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setForeground(Color.BLACK);
