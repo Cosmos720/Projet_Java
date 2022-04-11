@@ -30,7 +30,7 @@ public class controleCreerEnfant implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de nom.","Nom manquant",JOptionPane.WARNING_MESSAGE);
 			}else if(prenom.length() == 0){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de prenom.","Prenom manquant",JOptionPane.WARNING_MESSAGE);
-			}else if(age == -1){
+			}else if(age == -1 || age>18 || age<4){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age.","Age manquant",JOptionPane.WARNING_MESSAGE);
 			}else{
 				Enfant enfant = new Enfant(nom,prenom,age,mainView.getSexe(),mainView.getRegime(),compte);
