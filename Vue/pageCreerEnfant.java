@@ -97,7 +97,7 @@ public class pageCreerEnfant extends JFrame {
 		panel_1.add(sexe, gbc);
 		
         // Ajout Age
-		JLabel label_age = new JLabel("Age");
+		JLabel label_age = new JLabel("Age (Entre 4 et 18ans");
 		label_age.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		textField_age.addKeyListener(Digit);
 		gbc.gridx = 0;

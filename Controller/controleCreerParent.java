@@ -31,12 +31,14 @@ public class controleCreerParent implements ActionListener{
 		if(pressed.getName() == "continuer") {
 			if(nom.length() == 0){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de nom.","Nom manquant",JOptionPane.WARNING_MESSAGE);
-			}else if(prenom.length() == 0){
-				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de prenom.","Prenom manquant",JOptionPane.WARNING_MESSAGE);
-			}else if(age == -1){
-				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age.","Age manquant",JOptionPane.WARNING_MESSAGE);
 			}else if(salaire == -1){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de salaire.","Salaire manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(age == -1 ||age<18 || age>95){
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age. \n Ou votre age n'est pas valide","Age invalide",JOptionPane.WARNING_MESSAGE);
+			}else if(prenom.length() == 0){
+				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré de prenom.","Prenom manquant",JOptionPane.WARNING_MESSAGE);
+			}else if(prenom==nom){
+				JOptionPane.showMessageDialog(mainView, "Veuillez rentré un nom et prenom valide.","Nom Prenom invalide",JOptionPane.WARNING_MESSAGE);
 			}else{
 				Parent p = new Parent(nom,prenom,age,pageP.getSexe(),compte, new Vector<Enfant>(),salaire);
 				compte.setParent(p);
@@ -45,6 +47,7 @@ public class controleCreerParent implements ActionListener{
 				mainView.validate();
 			}
 		}
+		
 	}
 
 }
