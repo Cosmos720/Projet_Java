@@ -52,8 +52,14 @@ public class pageReservation extends JPanel {
 
 		b1.setName("retour");
 		b1.addActionListener(controle);
+		b1.setBackground(Color.WHITE);
+        b1.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b2.setName("retour");
 		b2.addActionListener(controle);
+		b2.setBackground(Color.WHITE);
+        b2.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+
+
 		/* Onglet 1 */
 		GridBagLayout gbl_1 = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
 		GridBagConstraints gbc_1 = new GridBagConstraints();//pour définir des contraintes 
@@ -76,11 +82,15 @@ public class pageReservation extends JPanel {
 		btn_popup.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_popup.setName("popup");
 		btn_popup.addActionListener(controle);
+		btn_popup.setBackground(Color.WHITE);
+        btn_popup.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		panel_1.add(btn_popup);
 		
 		btn_add.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btn_add.setName("add");
 		btn_add.addActionListener(controle);
+		btn_add.setBackground(Color.WHITE);
+        btn_add.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		panel_1.add(btn_add);
 		
 		gbc_1.gridx = 0;
@@ -100,6 +110,8 @@ public class pageReservation extends JPanel {
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
 		btn_ajouter.addActionListener(controle);
+		btn_ajouter.setBackground(Color.WHITE);
+        btn_ajouter.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		gbc_1.fill = GridBagConstraints.NONE;
 		gbc_1.gridx = 0;
 		gbc_1.gridy = 2;

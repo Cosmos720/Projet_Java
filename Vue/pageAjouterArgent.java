@@ -59,6 +59,8 @@ public class pageAjouterArgent extends JFrame {
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
         btn_ajouter.addActionListener(controle);
+		btn_ajouter.setBackground(Color.WHITE);
+        btn_ajouter.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		gbc.fill = GridBagConstraints.NONE;
 		gbc.gridx = 1;
 		gbc.gridy = 2;

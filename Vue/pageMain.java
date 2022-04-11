@@ -47,6 +47,8 @@ public class pageMain extends JPanel{
             panel.setLayout(new GridLayout(4, 2, 0, 20)); 
             bCompte.setName("compte");
             bCompte.addActionListener(controleMain);
+            bCompte.setBackground(Color.WHITE);
+            bCompte.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 
             /* 
                 AFFICHAGE DES ENFANTS SUR LA PAGE MAIN 
@@ -68,6 +70,8 @@ public class pageMain extends JPanel{
             panel.add(bCompte);  
             bReservation.setName("reservation");
             bReservation.addActionListener(controleMain);
+            bReservation.setBackground(Color.WHITE);
+            bReservation.setUI(new javax.swing.plaf.basic.BasicButtonUI());   
             panel.add(bReservation);
             
             Component verticalStrut_1 = Box.createVerticalStrut(50);
@@ -75,6 +79,8 @@ public class pageMain extends JPanel{
 
             deconnecter.setAlignmentX(Component.CENTER_ALIGNMENT);
             deconnecter.setName("Se deconnecter");
+            deconnecter.setBackground(Color.WHITE);
+            deconnecter.setUI(new javax.swing.plaf.basic.BasicButtonUI());
             deconnecter.addActionListener(controleMain);
             add(deconnecter);
         }

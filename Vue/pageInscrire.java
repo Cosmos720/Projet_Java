@@ -75,6 +75,8 @@ public class pageInscrire extends JPanel {
 		// Ajout bouton inscrire
 		b1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b1.setName("inscrire");
+		b1.setBackground(Color.WHITE);
+        b1.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b1.addActionListener(ctl);
 		gbc.gridx = 1;
 		gbc.gridy = 5;
@@ -83,6 +85,8 @@ public class pageInscrire extends JPanel {
 		// Ajout bouton retour
 		b2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		b2.setName("retour");
+		b2.setBackground(Color.WHITE);
+        b2.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b2.addActionListener(ctl);
 		gbc.gridx = 1;
 		gbc.gridy = 6;

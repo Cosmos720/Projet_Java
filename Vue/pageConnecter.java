@@ -66,6 +66,8 @@ public class pageConnecter extends JPanel {
 		
 		// Ajout bouton se connecter
 		b1.setName("connecter");
+		b1.setBackground(Color.WHITE);
+        b1.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b1.addActionListener(ctl);
 		gbc.gridx = 1;
 		gbc.gridy = 4;
@@ -73,6 +75,8 @@ public class pageConnecter extends JPanel {
 
 		// Ajout bouton retour
 		b2.setName("retour");
+		b2.setBackground(Color.WHITE);
+        b2.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		b2.addActionListener(ctl);
 		gbc.gridx = 1;
 		gbc.gridy = 5;

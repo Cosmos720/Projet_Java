@@ -28,10 +28,14 @@ public class pageCompte extends JPanel{
 
         btn_argent.setName("argent");
         btn_argent.addActionListener(controle);
+        btn_argent.setBackground(Color.WHITE);
+        btn_argent.setUI(new javax.swing.plaf.basic.BasicButtonUI());
         panel.add(btn_argent);
 
         btn_enfant.setName("enfant");
         btn_enfant.addActionListener(controle);
+        btn_enfant.setBackground(Color.WHITE);
+        btn_enfant.setUI(new javax.swing.plaf.basic.BasicButtonUI());
         panel.add(btn_enfant);
         add(panel);
 
@@ -41,6 +45,8 @@ public class pageCompte extends JPanel{
         btn_back.setName("back");
         btn_back.setAlignmentX(Component.CENTER_ALIGNMENT);
         btn_back.addActionListener(controle);
+        btn_back.setBackground(Color.WHITE);
+        btn_back.setUI(new javax.swing.plaf.basic.BasicButtonUI());
         add(btn_back);
     }
 }
