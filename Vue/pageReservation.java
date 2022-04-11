@@ -22,7 +22,6 @@ public class pageReservation extends JPanel {
 	private JPanel onglet_1 = new JPanel();
 	private JTextField textField = new JTextField();
 	private JButton btn_popup = new JButton("...");
-	private JPanel panel_date = new JPanel();
 	private DefaultListModel<String> model = new DefaultListModel<>();
 	private JList<String> dates = new JList<String>(model);
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
