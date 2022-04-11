@@ -39,6 +39,8 @@ public class controleCreerEnfant implements ActionListener{
 				compte.getuser().newQuotient();
 				mainView.dispose();
 			}
+		} else if(pressed.getName() == "retour"){
+			mainView.dispose();
 		}
 	}
 
