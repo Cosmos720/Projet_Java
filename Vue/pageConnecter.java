@@ -1,5 +1,4 @@
 package Vue;
-
 import javax.swing.*;
 import java.awt.*;
 import Controller.*;
@@ -8,6 +7,8 @@ import Model.*;
 
 
 public class pageConnecter extends JPanel {
+	
+	
 	private JTextField textField = new JTextField();
 	private JPasswordField passwordField = new JPasswordField();
 	private JLabel label = new JLabel("Connexion");
@@ -16,6 +17,9 @@ public class pageConnecter extends JPanel {
 	
 	private pagePrincipale mainView;
 	private connecterCtl ctl;
+	
+
+
 	
 	public pageConnecter(pagePrincipale v, Cantine cantine) {
 		mainView = v;

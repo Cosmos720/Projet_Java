@@ -1,6 +1,4 @@
 package Vue;
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,11 +6,19 @@ import Controller.*;
 import Model.*;
 
 public class pageAjouterArgent extends JFrame {
+
 	private JTextField textField = new JTextField();
 	private JButton btn_ajouter = new JButton("Ajouter");
-
     private controleAjtArgent controle;
 
+
+
+
+	/**
+	 * 
+	 * @param c est le compte auquel on est connecté 
+	 * @param cantine nous permet d'avoir acces a la base de données
+	 */
 	public pageAjouterArgent(Compte c, Cantine cantine) {
 		/**
         * Oblige l'utilisateur de mettre uniquement des chiffres dans un FormatedTextField donné
@@ -72,6 +78,10 @@ public class pageAjouterArgent extends JFrame {
 		setResizable(false);
 	}
 
+	/**
+	 * 
+	 * @return le valeur écrite dans la zone de texte 
+	 */
     public double getValeur(){
 		if(textField.getText().equals("")){
         	return -1;

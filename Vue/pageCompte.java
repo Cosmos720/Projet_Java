@@ -11,12 +11,20 @@ public class pageCompte extends JPanel{
     private JButton btn_argent = new JButton("Créditer mon compte");
     private JButton btn_enfant = new JButton("Inscrire mon enfant");
     private JButton btn_salaire = new JButton("Modifier mon salaire");
-
     private JButton btn_back = new JButton("Retour");
 
     private controleCompte controle;
     private pagePrincipale mainView;
 
+
+
+
+    /**
+     * 
+     * @param v est la fenetre dans laquelle est affichée le panel
+     * @param c est le compte auquel on est connecté 
+     * @param cantine nous permet d'avoir acces a la base de données cantine
+     */
     public pageCompte(pagePrincipale v, Compte c, Cantine cantine){
         mainView = v;
         mainView.setTitle("Gestion du compte");
