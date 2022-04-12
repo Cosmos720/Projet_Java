@@ -29,7 +29,11 @@ public class controleReservation implements ActionListener{
 			page.setText(new datePicker(mainView).setPickedDate());
 		}
 		else if(pressed.getName() == "add" && page.getText().length() > 0) {
-			page.addDate(page.getText());
+			if(!page.isWrite(page.getText())){
+				page.addDate(page.getText());
+			}else{
+				JOptionPane.showMessageDialog(mainView, "Vous avez déjà selectionné cette date","Date déjà selectionné",JOptionPane.WARNING_MESSAGE);
+			}
 		}
 		else if(pressed.getName() == "ajouter") {
 			ArrayList<String> list_resa = page.getReservation();
@@ -37,6 +41,8 @@ public class controleReservation implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas inscrit d'enfant à la cantine.","Pas d'enfant inscrit",JOptionPane.WARNING_MESSAGE);
 			}else if(list_resa.size() == 0){
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas choisis de reservation.","Pas de reservation",JOptionPane.WARNING_MESSAGE);
+			}else if(compte.isRes(page.getEnfant(), list_resa)){
+				JOptionPane.showMessageDialog(mainView, "Une des réservations entrée est déjà existante.","Réservation existante",JOptionPane.WARNING_MESSAGE);
 			}else{
 				// Ajouter les réservations
 				int resultat = JOptionPane.showConfirmDialog(mainView,"Voulez vous vraiment confirmer cette réservation?","Confirmation",JOptionPane.YES_NO_OPTION); 
@@ -46,7 +52,7 @@ public class controleReservation implements ActionListener{
 					double manquant = total_prix - compte.getSolde();
 					if(compte.getSolde() - total_prix >= 0){
 						for(String s : list_resa){
-							new Reservation(page.getEnfant(), s, compte, compte.getuser().getQuotient().getTotal());
+							new Reservation(page.getEnfant(), s, compte, prix);
 						}
 						compte.debiter(total_prix);
 					}else {
@@ -57,12 +63,12 @@ public class controleReservation implements ActionListener{
 					page.showResa();
 					page.deleteDate();
 					mainView.validate();
-					}
 				}
+			}
 				
 			
 		
-			}else if(pressed.getName() == "retour"){
+		}else if(pressed.getName() == "retour"){
 			mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();

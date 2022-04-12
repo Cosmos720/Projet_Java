@@ -22,7 +22,7 @@ public class pageReservation extends JPanel {
 	private JPanel onglet_1 = new JPanel();
 	private JTextField textField = new JTextField();
 	private JButton btn_popup = new JButton("...");
-	private DefaultListModel<String> model = new DefaultListModel<>();
+	private DefaultListModel<String> model = new DefaultListModel<String>();
 	private JList<String> dates = new JList<String>(model);
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
@@ -187,6 +187,16 @@ public class pageReservation extends JPanel {
 		textField.setText("");
 	}
 	
+	public boolean isWrite(String d){
+		ArrayList<String> date_list = getReservation();
+		for(String date:date_list){
+			if(date.equals(d)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public ArrayList<String> getReservation() {
 		ArrayList<String> date_list = new ArrayList<String>();
 		ListModel<String> m = dates.getModel();

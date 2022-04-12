@@ -76,6 +76,15 @@ public class Compte {
         resa.add(r);
     }
 
+    public boolean isRes(Enfant e, ArrayList<String> dates){
+        for(Reservation r:resa){
+            if(r.equals(e, dates)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Vector<Enfant> getEnfants(){
         return user.getEnfants();
     }
