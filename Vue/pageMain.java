@@ -27,7 +27,7 @@ public class pageMain extends JPanel{
             mainView.setTitle("Accueil");
 		    controleMain = new ControleMain(mainView, c, cantine);
 
-            solde = new JLabel("Solde : " +  new DecimalFormat("#.##").format(this.controleMain.getSolde())+"€");
+            solde = new JLabel("Solde : " +  new DecimalFormat("#.##").format(this.controleMain.getSolde())+"€"+"          Prix par repas "+   new DecimalFormat("#.##").format(this.controleMain.getPrixRepas())+"€");
             
             setBorder(new EmptyBorder(50, 80, 50, 80));
             setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
