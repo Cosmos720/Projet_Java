@@ -8,12 +8,10 @@ import javax.swing.*;
 public class controleCreerEnfant implements ActionListener{
 	private pageCreerEnfant mainView;
 	private Compte compte;
-	private Cantine cantine;
 	
-	public controleCreerEnfant(pageCreerEnfant v, Compte c, Cantine cantine) {
+	public controleCreerEnfant(pageCreerEnfant v, Compte c) {
 		mainView = v;
 		compte = c;
-		this.cantine = cantine;
 	}
 	
 	@Override
@@ -33,7 +31,6 @@ public class controleCreerEnfant implements ActionListener{
 				JOptionPane.showMessageDialog(mainView, "Vous n'avez pas rentré d'age.","Age manquant",JOptionPane.WARNING_MESSAGE);
 			}else{
 				Enfant enfant = new Enfant(nom,prenom,age,mainView.getSexe(),mainView.getRegime());
-				cantine.addEnfants(enfant);
 				compte.getuser().addEnfant(enfant);
 				mainView.dispose();
 			}

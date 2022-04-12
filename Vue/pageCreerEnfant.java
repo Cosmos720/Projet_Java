@@ -46,7 +46,7 @@ public class pageCreerEnfant extends JFrame {
             }
         };
 
-		controle = new controleCreerEnfant(this,c, cantine);
+		controle = new controleCreerEnfant(this,c);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Information de l'enfant");
