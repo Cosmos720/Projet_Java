@@ -32,12 +32,12 @@ public class BDD {
         Compte Harlaus = new Compte("Harlaus", "azerty", 3000 , null);
         Parent Gauthier = new Parent("Evraerd", "Gauthier", 24, "Homme", Harlaus, new Vector<Enfant>(), 8000);
         Enfant Laura = new Enfant("Evraerd", "Laura", 12, "Fille", "Aucun");
-        Enfant Clara = new Enfant("Papillion", "Clara", 4, "Fille", "Aucun");
+        Enfant Clara = new Enfant("Evraerd", "Clara", 4, "Fille", "Aucun");
         Gauthier.addEnfant(Laura);
         Gauthier.addEnfant(Clara);
         Harlaus.getuser().newQuotient();
 
-        Cantine cantine = new Cantine("Cantine pour les Tipeu");
+        Cantine cantine = new Cantine("Cantine");
 		cantine.addComptes(Arm);
         cantine.addComptes(Coco);
         cantine.addComptes(Awk);

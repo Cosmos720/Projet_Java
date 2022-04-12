@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * 
+ * L'enfant relié aux reservations et a un compte
  */
 public class Enfant extends Personne {
 
@@ -14,20 +14,17 @@ public class Enfant extends Personne {
     }
 
     /**
-     * 
+     * Le régime alimentaire de l'enfant
      */
     private String regime;
 
 
+    /**
+     * Permet de récupperer le régime alimentaire de l'enfant
+     * @return
+     */
     public String getRegime() {
         return regime;
     }
 
-    public void setAllergies(String allergies) {
-        this.regime = allergies;
-    }
-
-    public String toString(){
-        return getNom() +" "+ getPrenom();
-    }
 }
