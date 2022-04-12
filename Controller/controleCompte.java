@@ -25,7 +25,9 @@ public class controleCompte implements ActionListener{
 			new pageAjouterArgent(compte, cantine);
 		} else if(pressed.getName() == "enfant"){
             new pageCreerEnfant(compte, cantine);
-        }else if(pressed.getName() == "back"){
+		}else if(pressed.getName() == "salaire"){
+			new pageModifSalaire(compte, cantine);
+		}else if(pressed.getName() == "back"){
             mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
 			mainView.validate();
