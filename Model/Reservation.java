@@ -1,6 +1,7 @@
 package Model;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * Classe Reservation
@@ -38,4 +39,12 @@ public class Reservation {
         return "Enfant : " + enfant + " Date : " + date_reservation + " Prix : " + new DecimalFormat(".##").format(prix) + "€" + (enfant.getRegime()!="Aucun"?" Régime : " + enfant.getRegime():"");
     }
 
+    public boolean equals(Enfant e, ArrayList<String> dates){
+        for(String date:dates){
+            if(e.equals(enfant) && date.equals(date_reservation)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

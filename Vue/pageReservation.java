@@ -22,10 +22,11 @@ public class pageReservation extends JPanel {
 	private JPanel onglet_1 = new JPanel();
 	private JTextField textField = new JTextField();
 	private JButton btn_popup = new JButton("...");
-	private DefaultListModel<String> model = new DefaultListModel<>();
+	private DefaultListModel<String> model = new DefaultListModel<String>();
 	private JList<String> dates = new JList<String>(model);
 	private JButton btn_ajouter = new JButton("Ajouter reservation");
 	private JButton btn_add = new JButton("+");
+	private JButton btn_supp = new JButton("Supprimer");
 	private JComboBox<Enfant> enfant;
 	private JButton b1 = new JButton("Retour");
 
@@ -67,7 +68,7 @@ public class pageReservation extends JPanel {
 		gbc_1.insets = new Insets(5,5,5,5);
 
 		//definition des colonnes et lignes
-		gbl_1.columnWidths = new int[]{650};
+		gbl_1.columnWidths = new int[]{325,325};
 		gbl_1.rowHeights = new int[]{100,290,75,75};
 		onglet_1.setLayout(gbl_1);
 
@@ -92,9 +93,10 @@ public class pageReservation extends JPanel {
 		btn_add.setBackground(Color.WHITE);
         btn_add.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		panel_1.add(btn_add);
-		
+
 		gbc_1.gridx = 0;
 		gbc_1.gridy = 0;
+		gbc_1.gridwidth = 2;
 		onglet_1.add(panel_1, gbc_1);
 		
 		JScrollPane scrollablePane=new JScrollPane();
@@ -104,23 +106,33 @@ public class pageReservation extends JPanel {
 		gbc_1.gridx = 0;
 		gbc_1.gridy = 1;
 		onglet_1.add(scrollablePane, gbc_1);
-
 		
-
+		
+		
 		btn_ajouter.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_ajouter.setName("ajouter");
 		btn_ajouter.addActionListener(controle);
 		btn_ajouter.setBackground(Color.WHITE);
         btn_ajouter.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		gbc_1.fill = GridBagConstraints.NONE;
+		gbc_1.gridx = 1;
+		gbc_1.gridy = 2;
+		gbc_1.gridwidth = 1;
+		onglet_1.add(btn_ajouter, gbc_1);
+		
+		btn_supp.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btn_supp.setName("supprimer");
+		btn_supp.addActionListener(controle);
+		btn_supp.setBackground(Color.WHITE);
+        btn_supp.setUI(new javax.swing.plaf.basic.BasicButtonUI());
 		gbc_1.gridx = 0;
 		gbc_1.gridy = 2;
-		onglet_1.add(btn_ajouter, gbc_1);
-
+		onglet_1.add(btn_supp, gbc_1);
 		gbc_1.gridx = 0;
 		gbc_1.gridy = 3;
+		gbc_1.gridwidth = 2;
 		onglet_1.add(b1, gbc_1);
-
+		
 		/* Onglet 2 */
 		GridBagLayout gbl_2 = new GridBagLayout(); //c'est le gestionnaire de placement en grid pour placer les objets sur une grille
 		GridBagConstraints gbc_2 = new GridBagConstraints();//pour définir des contraintes 
@@ -165,7 +177,12 @@ public class pageReservation extends JPanel {
 		resa.setModel(model_resa);
 	}
 
-	public void deleteDate(){
+	public void deleteDate(int i){
+		model.remove(i);
+		
+	}
+
+	public void deleteAllDate(){
 		model.removeAllElements();
 	}
 
@@ -187,6 +204,16 @@ public class pageReservation extends JPanel {
 		textField.setText("");
 	}
 	
+	public boolean isWrite(String d){
+		ArrayList<String> date_list = getReservation();
+		for(String date:date_list){
+			if(date.equals(d)){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public ArrayList<String> getReservation() {
 		ArrayList<String> date_list = new ArrayList<String>();
 		ListModel<String> m = dates.getModel();
@@ -198,5 +225,9 @@ public class pageReservation extends JPanel {
 
 	public Enfant getEnfant(){
 		return (Enfant)enfant.getSelectedItem();
+	}
+
+	public int[] getSelectedDates(){
+		return dates.getSelectedIndices();
 	}
 }

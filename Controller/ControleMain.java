@@ -19,6 +19,9 @@ public class ControleMain implements ActionListener {
     public double getSolde(){
        return compte.getSolde();
     }
+    public double getPrixRepas(){
+        return compte.getuser().getQuotient().getTotal();
+     }
 
 
     @Override
