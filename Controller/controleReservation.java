@@ -77,9 +77,7 @@ public class controleReservation implements ActionListener{
 			if(indices.length == 0){
 				JOptionPane.showMessageDialog(mainView, "Veuillez selectionné une date à supprimer","Aucune date selectionné",JOptionPane.WARNING_MESSAGE);
 			}else{
-				for(int i:indices){
-					page.deleteDate(i);
-				}
+				page.deleteDate(indices);
 			}
 		}else if(pressed.getName() == "retour"){
 			mainView.getContentPane().removeAll();

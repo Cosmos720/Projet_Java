@@ -177,9 +177,10 @@ public class pageReservation extends JPanel {
 		resa.setModel(model_resa);
 	}
 
-	public void deleteDate(int i){
-		model.remove(i);
-		
+	public void deleteDate(int[] listeIndice){
+		for(int i=listeIndice.length-1;i>=0;i--){
+			model.remove(listeIndice[i]);
+		}
 	}
 
 	public void deleteAllDate(){
