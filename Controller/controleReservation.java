@@ -46,7 +46,7 @@ public class controleReservation implements ActionListener{
 			}else{
 				// Ajouter les réservations
 				int resultat = JOptionPane.showConfirmDialog(mainView,"Voulez vous vraiment confirmer cette réservation?","Confirmation",JOptionPane.YES_NO_OPTION); 
-				if (resultat==JOptionPane.YES_NO_OPTION){	
+				if (resultat==JOptionPane.YES_OPTION){	
 					double prix = compte.getuser().getQuotient().getTotal();
 					double total_prix = prix * list_resa.size();
 					double manquant = total_prix - compte.getSolde();
@@ -55,19 +55,32 @@ public class controleReservation implements ActionListener{
 							new Reservation(page.getEnfant(), s, compte, prix);
 						}
 						compte.debiter(total_prix);
+						page.showResa();
+						page.deleteAllDate();
+						mainView.validate();
 					}else {
-						JLabel message = new JLabel("<html><center>Vous n'avez pas assez de solde pour faire ces reservations:<br>il vous manque "+new DecimalFormat(".##").format(manquant)+"€");
+						JLabel message = new JLabel("<html><center>Vous n'avez pas assez de solde pour faire ces reservations:<br>il vous manque "+new DecimalFormat(".##").format(manquant)+"€"+ "<br>Voulez vous ajouter de l'argent sur votre compte?");
 						message.setHorizontalAlignment(SwingConstants.CENTER);
-						JOptionPane.showMessageDialog(mainView, message,"Solde insuffisant",JOptionPane.WARNING_MESSAGE);
+						//JOptionPane.showMessageDialog(mainView, message,"Solde insuffisant",JOptionPane.WARNING_MESSAGE);
+						int choix = JOptionPane.showConfirmDialog(mainView, message,"Ajout d'argent",JOptionPane.YES_NO_OPTION);
+						if(choix==JOptionPane.YES_OPTION){
+							new pageAjouterArgent(compte, cantine);
+						}
 					}
-					page.showResa();
-					page.deleteDate();
-					mainView.validate();
 				}
 			}
 				
 			
 		
+		}else if(pressed.getName() == "supprimer"){
+			int[] indices = page.getSelectedDates();
+			if(indices.length == 0){
+				JOptionPane.showMessageDialog(mainView, "Veuillez selectionné une date à supprimer","Aucune date selectionné",JOptionPane.WARNING_MESSAGE);
+			}else{
+				for(int i:indices){
+					page.deleteDate(i);
+				}
+			}
 		}else if(pressed.getName() == "retour"){
 			mainView.getContentPane().removeAll();
 			mainView.getContentPane().add(new pageMain(mainView, compte, cantine));
